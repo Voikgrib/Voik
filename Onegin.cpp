@@ -7,13 +7,21 @@ int n_sub(char* my_buff, long int size_of_text);
 int str_sort(struct str* str_info, long int num_of_str);
 int str_treatment(char *my_buff, struct str* str_info,  long int size_of_text, long int num_of_str);
 int compare_string(char* first, char* second);
+int end_str_treatment(struct str* str_info, long int num_of_str);
+int end_compare_string(char* first, int first_length, char* second, int second_length);
+
+long int get_file_size(FILE *text);
+long int file_read(FILE *text, long int size_of_text, char* my_buff);
+
+void my_print(struct str* str_info, long int num_of_str);
+
 
 //!-----------------------------------------------------
 //!
-//! РЎРѕР·РґР°РЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹, РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СЂРѕРєР°С…
+//! Создание структуры, для хранения информации о строках
 //!
-//! @param char* str_start - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ СЃС‚СЂРѕРєРё
-//! @param int length - РґР»РёРЅР° СЃС‚СЂРѕРєРё
+//! @param char* str_start - указатель на начало строки
+//! @param int length - длина строки
 //!
 //!-----------------------------------------------------
 struct str
@@ -24,43 +32,49 @@ struct str
 
 //!-----------------------------------------------------
 //!
-//! РЎРѕСЂС‚РёСЂРѕРІРєР° СЃС‚СЂРѕРє РІ С‚РµРєСЃС‚Рµ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
+//! Сортировка строк в тексте по алфавиту
 //!
 //!-----------------------------------------------------
 int main()
 {
-    const int zero = 0;
-
     long int size_of_text = 0;
     long int num_of_str = 0;
     int err = 0;
-    int i = 0;
 
     FILE *text = fopen("Onegin_text.txt","rt");
 
+    size_of_text = get_file_size(text);
 
-    fseek(text, zero, SEEK_END);
-    size_of_text = ftell(text);// Р’С‹С‡РёСЃР»РµРЅРёРµ РґР»РёРЅС‹ С‚РµРєСЃС‚Р°
+    char *my_buff = new char [size_of_text];
 
-    char *my_buff = new char [size_of_text];// РЎРѕР·РґР°РЅРёРµ Р±СѓС„РµСЂР°
+    num_of_str = file_read(text, size_of_text, my_buff);
 
-    fseek(text, zero, SEEK_SET);
-    fread(my_buff, sizeof(char), size_of_text, text);
-    num_of_str = n_sub(my_buff, size_of_text);//Р’С‹С‡РёСЃР»РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СЂРѕРє + Р·Р°РјРµРЅР° '\n' РЅР° '\0'
+    struct str* str_info = new struct str [num_of_str];
 
-    struct str* str_info = new struct str [num_of_str];// РЎРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР° СЃС‚СЂСѓРєС‚СѓСЂ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СЂРѕРєР°С…
+    err = str_treatment(my_buff, str_info, size_of_text, num_of_str);
 
-    err = str_treatment(my_buff, str_info, size_of_text, num_of_str);// Р—Р°РїРёСЃСЊ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚СЂРѕРєР°С… РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ str_info
+    my_print(str_info, num_of_str);
 
-
-    err = err + str_sort(str_info, num_of_str);// РЎРѕСЂС‚РёСЂРѕРІРєР° СЃС‚СЂРѕРє "РїСѓР·С‹СЂСЊРєРѕРј"
-
-
-    while(i != num_of_str)// РџРµС‡Р°С‚СЊ СЃС‚СЂРѕРє
+    if(err != 0)
     {
-         printf("# %d # %s \n",i , str_info[i].str_start);
-         i++;
+        printf("### ERROR 1 ###\n");
+        return err;
     }
+
+    err = str_sort(str_info, num_of_str);
+
+    if(err != 0)
+    {
+        printf("### ERROR 2 ###\n");
+        return err;
+    }
+
+
+    my_print(str_info, num_of_str);
+
+    err = end_str_treatment(str_info, num_of_str);
+
+    my_print(str_info, num_of_str);
 
     fclose(text);
 
@@ -69,12 +83,12 @@ int main()
 
 //!----------------------------------------------------------------
 //!
-//! Р¤СѓРЅРєС†РёСЏ РЅР°С…РѕРґРёС‚ '\n' РІ Р±СѓС„РµСЂРµ Рё Р·Р°РјРµРЅСЏРµС‚ РёС… РЅР° '\0'
+//! Функция находит '\n' в буфере и заменяет их на '\0'
 //!
-//! @param[in] char *my_buff - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р±СѓС„РµСЂ
-//! @param[in] long int size_of_text - РґР»РёРЅР° Р±СѓС„РµСЂР°
+//! @param[in] char *my_buff - указатель на буфер
+//! @param[in] long int size_of_text - длина буфера
 //!
-//! @param[out] num_of_str - РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ С‚РµРєСЃС‚Рµ
+//! @param[out] num_of_str - количество строк в тексте
 //!
 //!----------------------------------------------------------------
 int n_sub(char *my_buff, long int size_of_text)
@@ -84,7 +98,7 @@ int n_sub(char *my_buff, long int size_of_text)
 
     while(cur_poz != size_of_text)
     {
-        if(my_buff[cur_poz] == '\n')// РќР°С…РѕР¶РґРµРЅРёРµ '\n' Рё Р·Р°РјРµРЅР° РёС… РЅР° '\0' РІ Р±СѓС„РµСЂРµ
+        if(my_buff[cur_poz] == '\n')
         {
             my_buff[cur_poz] = '\0';
             num_of_str++;
@@ -98,26 +112,26 @@ int n_sub(char *my_buff, long int size_of_text)
 
 //!----------------------------------------------------------------
 //!
-//! Р¤СѓРЅРєС†РёСЏ Р·Р°РїРёСЃС‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃС‚СЂРѕРєР°С… РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ str_info
+//! Функция записывает информацию о строках в структуру str_info
 //!
-//! @param[in] char *my_buff - РЈРєР°Р·Р°С‚РµР»СЊ РЅР° Р±СѓС„РµСЂ
-//! @param[in] struct str *str_info - РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ СЃС‚СЂРѕРєР°С…
-//! @param[in] long int size_of_text - РґР»РёРЅР° Р±СѓС„РµСЂР°
-//! @param[in] long int num_of_str - РљРѕР»-РІРѕ СЃС‚СЂРѕРє РІ Р±СѓС„РµСЂРµ
+//! @param[in] char *my_buff - Указатель на буфер
+//! @param[in] struct str *str_info - Указаfirst_lengthтель на структуру с информацией о строках
+//! @param[in] long int size_of_text - длина буфера
+//! @param[in] long int num_of_str - Кол-во строк в буфере
 //!
-//! @param[out] Р’С‹РІРѕРґРёС‚ 0 РµСЃР»Рё РѕС€РёР±РѕРє РЅРµС‚
+//! @param[out] Выводит 0 если ошибок нет
 //!
 //!----------------------------------------------------------------
 int str_treatment(char *my_buff, struct str* str_info, long int size_of_text, long int num_of_str)
 {
     int cur_poz = 0;
     int cur_str = 0;
-    int prev_str_start = 0;
 
     if(my_buff[cur_poz] == '\0')
         return 1;
 
-    str_info[cur_str].str_start = my_buff;// Р—Р°РїРёСЃСЊ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё
+    str_info[cur_str].str_start = my_buff;// Запись первой строки
+    str_info[cur_str].length = strlen(str_info[cur_str].str_start);
     cur_poz++;
     cur_str++;
 
@@ -125,10 +139,8 @@ int str_treatment(char *my_buff, struct str* str_info, long int size_of_text, lo
     {
         if(my_buff[cur_poz] == '\0' && cur_poz != size_of_text - num_of_str)
         {
-            str_info[cur_str].str_start = my_buff + cur_poz + 1;// Р—Р°РїРёСЃСЊ Р°РґСЂРµСЃР° РЅР°С‡Р°Р»Р° СЃС‚СЂРѕРєРё
-            str_info[cur_str].length = cur_poz - prev_str_start;// РќР°С…РѕР¶РґРµРЅРёРµ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё
-            prev_str_start = cur_poz + 1;// Р—Р°РїРёСЃСЊ РЅР°С‡Р°Р»Р° СЃС‚СЂРѕРєРё (РќРµРѕР±С…РѕРґРёРјРѕ РґР»СЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё)
-
+            str_info[cur_str].str_start = my_buff + cur_poz + 1;
+            str_info[cur_str].length = strlen(str_info[cur_str].str_start);
 
             cur_str++;
         }
@@ -136,19 +148,17 @@ int str_treatment(char *my_buff, struct str* str_info, long int size_of_text, lo
         cur_poz++;
     }
 
-
-
     return 0;
 }
 
 //!----------------------------------------------------------------
 //!
-//! Р’С‹РїРѕР»РЅСЏРµС‚ СЃРѕСЂС‚РёСЂРѕРІРєСѓ СЃС‚СЂРѕРє РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
+//! Выполняет сортировку строк по алфавиту
 //!
-//! @param[in] struct str *str_info - РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ СЃС‚СЂРѕРєР°С…
-//! @param[in] long int num_of_str - РљРѕР»-РІРѕ СЃС‚СЂРѕРє РІ Р±СѓС„РµСЂРµ
+//! @param[in] struct str *str_info - Указатель на структуру с информацией о строках
+//! @param[in] long int num_of_str - Кол-во строк в буфере
 //!
-//! @param[out] Р’РѕР·РІСЂР°С‰Р°РµС‚ 0 РїСЂРё РІС‹РїРѕР»РЅРµРЅРёРё Р±РµР· РѕС€РёР±РѕРє
+//! @param[out] Возвращает 0 при выполнении без ошибок
 //!
 //!----------------------------------------------------------------
 int str_sort(struct str* str_info, long int num_of_str)
@@ -160,35 +170,35 @@ int str_sort(struct str* str_info, long int num_of_str)
     const int yes = 1;
     const int no = -1;
 
-    char* temp = 0;
+    char* temp = NULL;
     int len_temp = 0;
 
-    while(end_of_sort != yes)// РџСЂРѕРІРµСЂРєР°, РІС‹РїРѕР»РЅСЏР»Р°СЃСЊ Р»Рё С…РѕС‚СЏ Р±С‹ РѕРґРЅР° Р·Р°РјРµРЅР° СЃС‚СЂРѕРє Р·Р° С†РёРєР»
+    while(end_of_sort != yes)
     {
-        cur_poz = 0;// РћР±РЅСѓР»РµРЅРёРµ С‚РµРєСѓС‰РµР№ РїРѕР·РёС†РёРё
-        end_of_sort = yes;// РћР±РЅСѓР»РµРЅРёСЏ С‚СЂРёРіРµСЂР° РІС‹С…РѕРґР° РёР· СЃРѕСЂС‚РёСЂРѕРІРєРё
+        cur_poz = 0;
+        end_of_sort = yes;
 
         while(cur_poz != num_of_str - 1)
         {
-            if(compare_string(str_info[cur_poz].str_start, str_info[cur_poz + 1].str_start) > 0)// РџСЂРѕРІРµСЂРєР° РЅР° РЅРµРІРµСЂРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃС‚СЂРѕРє РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
+            if(compare_string(str_info[cur_poz].str_start, str_info[cur_poz + 1].str_start) > 0)
             {
 
-                temp = str_info[cur_poz].str_start;// Р·Р°РјРµРЅР° РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРє
+                temp = str_info[cur_poz].str_start;
 
                 str_info[cur_poz].str_start = str_info[cur_poz + 1].str_start;
                 str_info[cur_poz + 1].str_start = temp;
 
 
-                len_temp = str_info[cur_poz].length;// Р·Р°РјРµРЅР° РјРµСЃС‚Р°РјРё РґР»РёРЅ СЃС‚СЂРѕРє
+                len_temp = str_info[cur_poz].length;
 
                 str_info[cur_poz].length = str_info[cur_poz + 1].length;
                 str_info[cur_poz + 1].length = len_temp;
 
 
-                end_of_sort = no;// РўСЂРёРіРµСЂ С‚РѕРіРѕ, РїСЂРѕРёР·РѕС€Р»Р° Р»Рё С…РѕС‚СЊ СЂР°Р· Р·Р°РјРµРЅР°
+                end_of_sort = no;
             }
 
-            cur_poz++;// РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµР№ РїРѕР·РёС†РёРё
+            cur_poz++;
         }
     }
 
@@ -198,25 +208,183 @@ int str_sort(struct str* str_info, long int num_of_str)
 
 //!----------------------------------------------------------------
 //!
-//! Р”Р°С‘С‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ С‚РѕРј, РєР°РєР°СЏ РёР· РґРІСѓС… РїРѕР»СѓС‡РµРЅРЅС‹С… СЃС‚СЂРѕРє СЃС‚РѕСЏР»Р° СЂР°РЅСЊС€Рµ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
+//! Даёт информацию о том, какая из двух полученных строк стояла раньше по алфавиту
 //!
-//! @param[in] char* first - РџРµСЂРІР°СЏ СЃС‚СЂРѕРєР°
-//! @param[in] char* second - Р’С‚РѕСЂР°СЏ СЃС‚СЂРѕРєР°
+//! @param[in] char* first - Первая строка
+//! @param[in] char* second - Вторая строка
 //!
-//! @param[out] РћС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ, РµСЃР»Рё РїРµСЂРІР°СЏ СЃС‚СЂРѕРєР° СЂР°РЅСЊС€Рµ РІС‚РѕСЂРѕР№ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
-//! @param[out] РџРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ, РµСЃР»Рё РІС‚РѕСЂР°СЏ СЃС‚СЂРѕРєР° СЂР°РЅСЊС€Рµ РїРµСЂРІРѕР№ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
-//! @param[out] РЅРѕР»СЊ, РµСЃР»Рё СЃС‚СЂРѕРєРё РёРґРµРЅС‚РёС‡РЅС‹
+//! @param[out] Отрицательное число, если первая строка раньше второй по алфавиту
+//! @param[out] Положительное число, если вторая строка раньше первой по алфавиту
+//! @param[out] ноль, если строки идентичны
 //!
 //!----------------------------------------------------------------
 int compare_string(char* first, char* second)
 {
 
-    while(ispunct(*first) || isspace(*first))// РСЃРєР»СЋС‡Р°РµС‚ Р·РЅР°РєРё РїСЂРµРїРёРЅР°РЅРёСЏ Рё РїСЂРѕР±РµР»С‹ РІ РЅР°С‡Р°Р»Рµ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё
+    while(ispunct(*first) || isspace(*first))// Исключает знаки препинания и пробелы в начале первой строки
         first++;
 
-    while(ispunct(*second) || isspace(*second))// РСЃРєР»СЋС‡Р°РµС‚ Р·РЅР°РєРё РїСЂРµРїРёРЅР°РЅРёСЏ Рё РїСЂРѕР±РµР»С‹ РІ РЅР°С‡Р°Р»Рµ РІС‚РѕСЂРѕР№ СЃС‚СЂРѕРєРё
+    while(ispunct(*second) || isspace(*second))// Исключает знаки препинания и пробелы в начале второй строки
         second++;
 
 
     return strcmp(first, second);
+}
+
+//!----------------------------------------------------------------
+//!
+//! Считывает размер файла для записи в буфер
+//!
+//! @param[in] FILE *text - файл, размер которого надо узнать
+//!
+//! @param[out] size_of_text - Размер текста
+//!
+//!----------------------------------------------------------------
+long int get_file_size(FILE *text)
+{
+    long int size_of_text = 0;
+
+    const int zero = 0;
+
+    fseek(text, zero, SEEK_END);
+    size_of_text = ftell(text);
+
+    return size_of_text;
+}
+
+//!----------------------------------------------------------------
+//!
+//! Считывает файл и записывает в буфер + возвращает количество строк
+//!
+//! @param[in] FILE *text - файл
+//! @param[in] long int size_of_text - размер файла
+//! @param[in] char* my_buff - буфер
+//!
+//! @param[out] num_of_str - количество строк
+//!
+//!----------------------------------------------------------------
+long int file_read(FILE *text, long int size_of_text, char* my_buff)
+{
+    long int num_of_str = 0;
+
+    const int zero = 0;
+
+    fseek(text, zero, SEEK_SET);
+    fread(my_buff, sizeof(char), size_of_text, text);
+    num_of_str = n_sub(my_buff, size_of_text);
+
+    return num_of_str;
+}
+
+//!----------------------------------------------------------------
+//!
+//! Выводит строки по указателям в структуре str
+//!
+//! @param[in] struct str* str_info - структура, содержащая информацию о строках
+//! @param[in] long int num_of_str - количество строк
+//!
+//!----------------------------------------------------------------
+void my_print(struct str* str_info, long int num_of_str)
+{
+    int i = 0;
+
+    while(i != num_of_str)
+    {
+         printf("# %d # %s \n",i , str_info[i].str_start);
+         i++;
+    }
+
+    printf("\n \n \n");
+}
+
+//!----------------------------------------------------------------
+//!
+//! Сортировка "пузыриком" концов строк по алфавиту
+//!
+//! @param[in] struct str* str_info - Структура, содержащая информацию о строках
+//! @param[in] long int num_of_str - Количество строк
+//!
+//! @param[out] 0 - если ошибок нет
+//!
+//!----------------------------------------------------------------
+int end_str_treatment(struct str* str_info, long int num_of_str)
+{
+    long int cur_str = 0;
+    int end_of_sort = 0;
+
+    char* temp = NULL;
+    int len_temp = 0;
+
+    const int yes = 1;
+    const int no = -1;
+
+    while(end_of_sort != yes)
+    {
+        end_of_sort = yes;
+        cur_str = 0;
+
+        while(cur_str != num_of_str - 1)
+        {
+
+            if(end_compare_string(str_info[cur_str].str_start, str_info[cur_str].length, str_info[cur_str + 1].str_start, str_info[cur_str + 1].length) > 0)
+            {
+                temp = str_info[cur_str].str_start;
+
+                str_info[cur_str].str_start = str_info[cur_str + 1].str_start;
+                str_info[cur_str + 1].str_start = temp;
+
+                len_temp = str_info[cur_str].length;
+
+                str_info[cur_str].length = str_info[cur_str + 1].length;
+                str_info[cur_str + 1].length = len_temp;
+
+
+                end_of_sort = no;
+            }
+
+
+            cur_str++;
+        }
+    }
+
+    return 0;
+
+}
+
+//!----------------------------------------------------------------
+//!
+//! Функция, аналогичная strcmp, но работающая с конца строки
+//!
+//! @param[in] char* first - Указатель на первую строку
+//! @param[in] int first_length - Длина первой строки
+//! @param[in] char* second - Указатель на вторую строку
+//! @param[in] int second_length - Длина второй строки
+//!
+//! @param[out] Разность первой отличающейся буквы с конца строк
+//!
+//!----------------------------------------------------------------
+int end_compare_string(char* first, int first_length, char* second, int second_length)
+{
+    int end_difference = 0;
+
+    first = first + first_length-1;
+    second = second + second_length-1;
+
+    while(ispunct(*first) || isspace(*first))
+        first--;
+
+    while(ispunct(*second) || isspace(*second))
+        second--;
+
+    end_difference = *first - *second;
+
+    while(end_difference == 0)
+    {
+        end_difference = *first - *second;
+        second--;
+        first--;
+
+    }
+
+    return end_difference;
 }
