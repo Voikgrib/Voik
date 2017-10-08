@@ -7,14 +7,25 @@ typedef int data_type;
 
 const long int Max_size_of_my_stack = 666;
 const int Poizon_num = '\0';
+const int Push = 1;
+const int Pop = 2;
+const int Add = 3;
+const int Mul = 4;
+const int Sub = 5;
+const int Div = 6;
+const int End = 0;
 
 int Err_code = 0;
 
-data_type my_pop(struct s_my_stack *my_stack);
+data_type stack_pop(struct s_my_stack *my_stack);
 int is_stack_ok(struct s_my_stack *my_stack);
 
+void stack_add(struct s_my_stack *my_stack);
 void stack_construct(struct s_my_stack *my_stack);
-void my_push(struct s_my_stack *my_stack, data_type num);
+void stack_push(struct s_my_stack *my_stack, data_type num);
+void stack_mul(struct s_my_stack *my_stack);
+void stack_sub(struct s_my_stack *my_stack);
+void stack_div(struct s_my_stack *my_stack);
 void com_cleaner(char* command, int com_size);
 void err_print(void);
 
@@ -37,9 +48,9 @@ struct s_my_stack
 //!------------------------------------------------------------------------------------------
 int main()
 {
-    const int max_comm_lenght = 100;
+    FILE *compile = fopen("compile.txt","rt");
 
-    char cur_command[max_comm_lenght] = {0};
+    int command_num = -1 ;
     data_type num = 0;
 
     struct s_my_stack stack_1;
@@ -48,21 +59,35 @@ int main()
 
     stack_construct(&stack_1);
 
-    while(strcmp(cur_command,"exit") != 0)
+    while(command_num != End)
     {
-        com_cleaner(cur_command, max_comm_lenght);
+        fscanf(compile, "%d", &command_num);
 
-        scanf("%s", &cur_command);
-
-        if(strcmp(cur_command,"push") == 0)
+        if(command_num == Push)
         {
-            scanf("%d", &num);
-            my_push(&stack_1, num);
+            fscanf(compile, "%d", &num);
+            stack_push(&stack_1, num);
         }
-        else if(strcmp(cur_command,"pop") == 0)
+        else if(command_num == Pop)
         {
-            num = my_pop(&stack_1);
+            num = stack_pop(&stack_1);
             printf("num = %d \n", num);
+        }
+        else if(command_num == Add)
+        {
+            stack_add(&stack_1);
+        }
+        else if(command_num == Mul)
+        {
+            stack_mul(&stack_1);
+        }
+        else if(command_num == Sub)
+        {
+            stack_sub(&stack_1);
+        }
+        else if(command_num == Div)
+        {
+            stack_div(&stack_1);
         }
 
         if(Err_code != 0)
@@ -72,6 +97,7 @@ int main()
         }
     }
 
+    fclose(compile);
     return Err_code;
 }
 
@@ -87,6 +113,8 @@ void stack_construct(struct s_my_stack *my_stack)
 {
     int i = 0;
 
+    my_stack->counter = 0;
+
     if(is_stack_ok(my_stack) == -1)
         Err_code = 6;
 
@@ -95,8 +123,6 @@ void stack_construct(struct s_my_stack *my_stack)
         my_stack->data[i] = 0;
         i++;
     }
-
-    my_stack->counter = 0;
 
     if(is_stack_ok(my_stack) == -1)
         Err_code = 7;
@@ -113,7 +139,7 @@ void stack_construct(struct s_my_stack *my_stack)
 //!                   2 - memory or pointer error before push
 //!                   3 - memory or pointer error after push
 //!------------------------------------------------------------------------------------------
-void my_push(struct s_my_stack *my_stack, data_type num)
+void stack_push(struct s_my_stack *my_stack, data_type num)
 {
     if(is_stack_ok(my_stack) == -1)
         Err_code = 2;
@@ -143,7 +169,7 @@ void my_push(struct s_my_stack *my_stack, data_type num)
 //!
 //! @param[out] data_type num - number (or something) from stuck
 //!------------------------------------------------------------------------------------------
-data_type my_pop(struct s_my_stack *my_stack)
+data_type stack_pop(struct s_my_stack *my_stack)
 {
     int num = 0;
 
@@ -172,21 +198,100 @@ data_type my_pop(struct s_my_stack *my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
-//! This function cleans command string
+//! This function pick two numbers from stack and do num 2 + num 1, and pop answer
 //!
-//! @param[in] char* command - command string
-//! @param[in] int com_size - size of command string
+//! @param[in] struct s_my_stack *my_stack - stack we are working on
+//!
+//! @note Error codes 14 - memory or pointer error before mul
+//!                   15 - memory or pointer error after mul
 //!------------------------------------------------------------------------------------------
-void com_cleaner(char* command, int com_size)
+void stack_mul(struct s_my_stack *my_stack)
 {
-    int i = 0;
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 14;
 
-    while(i != com_size)
-    {
-        command[i] = Poizon_num;
-        i++;
-    }
+    data_type fir_num = stack_pop(my_stack);
+    data_type sec_num = stack_pop(my_stack);
+
+    stack_push(my_stack, sec_num * fir_num);
+
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 15;
 }
+
+//!------------------------------------------------------------------------------------------
+//! This function pick two numbers from stack and do num 2 - num 1, and pop answer
+//!
+//! @param[in] struct s_my_stack *my_stack - stack we are working on
+//!
+//! @note Error codes 13 - memory or pointer error before sub
+//!                   12 - memory or pointer error after sub
+//!------------------------------------------------------------------------------------------
+void stack_sub(struct s_my_stack *my_stack)
+{
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 13;
+
+    data_type fir_num = stack_pop(my_stack);
+    data_type sec_num = stack_pop(my_stack);
+
+    stack_push(my_stack, sec_num - fir_num);
+
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 12;
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function pick two numbers from stack and do num 2 / num 1, and pop answer
+//!
+//! @param[in] struct s_my_stack *my_stack - stack we are working on
+//!
+//! @note Error codes 10 - memory or pointer error before div
+//!                   11 - memory or pointer error after div
+//!                   100 - if num 1 / 0
+//!------------------------------------------------------------------------------------------
+void stack_div(struct s_my_stack *my_stack)
+{
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 10;
+
+    data_type fir_num = stack_pop(my_stack);
+    data_type sec_num = stack_pop(my_stack);
+
+    if(sec_num == 0)
+    {
+        Err_code = 100;
+        return;
+    }
+
+    stack_push(my_stack, sec_num / fir_num);
+
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 11;
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function pick two numbers from stack and do num 2 * num 1, and pop answer
+//!
+//! @param[in] struct s_my_stack *my_stack - stack we are working on
+//!
+//! @note Error codes 8 - memory or pointer error before add
+//!                   9 - memory or pointer error after add
+//!------------------------------------------------------------------------------------------
+void stack_add(struct s_my_stack *my_stack)
+{
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 8;
+
+    data_type fir_num = stack_pop(my_stack);
+    data_type sec_num = stack_pop(my_stack);
+
+    stack_push(my_stack, sec_num + fir_num);
+
+    if(is_stack_ok(my_stack) == -1)
+        Err_code = 9;
+}
+
 
 //!------------------------------------------------------------------------------------------
 //! This function prints error messages about last error
@@ -208,9 +313,29 @@ void err_print()
     else if(Err_code == 5)
         printf("!!!  ERROR_PRINT - ERROR_IN_PUSH_END  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 6)
-        printf("!!!  ERROR_PRINT - ERROR_IN_CREARE_STACK_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 5)
-        printf("!!!  ERROR_PRINT - ERROR_IN_CREARE_STACK_END  (Err_code = %d) !!!\n\n", Err_code);
+        printf("!!!  ERROR_PRINT - ERROR_IN_CREATE_STACK_START  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 7)
+        printf("!!!  ERROR_PRINT - ERROR_IN_CREATE_STACK_END  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 8)
+        printf("!!!  ERROR_PRINT - ERROR_IN_ADD_START  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 9)
+        printf("!!!  ERROR_PRINT - ERROR_IN_ADD_END (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 10)
+        printf("!!!  ERROR_PRINT - ERROR_IN_DIV_START  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 11)
+        printf("!!!  ERROR_PRINT - ERROR_IN_DIV_END  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 12)
+        printf("!!!  ERROR_PRINT - ERROR_IN_SUB_END  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 13)
+        printf("!!!  ERROR_PRINT - ERROR_IN_SUB_START  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 14)
+        printf("!!!  ERROR_PRINT - ERROR_IN_MUL_START  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 15)
+        printf("!!!  ERROR_PRINT - ERROR_IN_MUL_END  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 100)
+        printf("!!!  ERROR_PRINT - ERROR_IN_DIV I cann't do num / 0  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code != 0)
+        printf("!!! UNKNOWN_ERROR (Err_code = %d) !!!\n\n", Err_code);
 
 }
 

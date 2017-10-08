@@ -1,0 +1,11 @@
+push 23
+push 22
+add
+push 2
+mul
+push 10
+div
+push 4
+sub
+pop
+end
