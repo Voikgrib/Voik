@@ -3,10 +3,28 @@
 #include<assert.h>
 #include<string.h>
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#define STACK_ASSERT( stack )                                                                   \
+    if((is_stack_ok(stack) == -1))                                                              \
+        {                                                                                       \
+            info_dump(stack, 1);                                                                \
+        }                                                                                       \
+        else                                                                                    \
+            info_dump(stack, 0);                                                                \
+
+
+#define NAME_OF( name )             #name
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 typedef int data_type;
 
-const long int Max_size_of_my_stack = 666;
+const long int Max_size_of_my_stack = 10;
 const int Poizon_num = '\0';
+const int Cannery_security_check = 228;
 const int Push = 1;
 const int Pop = 2;
 const int Add = 3;
@@ -27,6 +45,7 @@ void stack_mul(struct s_my_stack *my_stack);
 void stack_sub(struct s_my_stack *my_stack);
 void stack_div(struct s_my_stack *my_stack);
 void com_cleaner(char* command, int com_size);
+void info_dump(struct s_my_stack *my_stack, int is_err);
 void err_print(void);
 
 //!------------------------------------------------------------------------------------------
@@ -37,8 +56,10 @@ void err_print(void);
 //!------------------------------------------------------------------------------------------
 struct s_my_stack
 {
+    int start_canerry_men;
     char data [Max_size_of_my_stack];
     int counter;
+    int end_cannery_men;
 };
 
 //!------------------------------------------------------------------------------------------
@@ -98,6 +119,7 @@ int main()
     }
 
     fclose(compile);
+
     return Err_code;
 }
 
@@ -114,6 +136,8 @@ void stack_construct(struct s_my_stack *my_stack)
     int i = 0;
 
     my_stack->counter = 0;
+    my_stack->end_cannery_men = Cannery_security_check;
+    my_stack->start_canerry_men = Cannery_security_check;
 
     if(is_stack_ok(my_stack) == -1)
         Err_code = 6;
@@ -124,8 +148,7 @@ void stack_construct(struct s_my_stack *my_stack)
         i++;
     }
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 7;
+    STACK_ASSERT(my_stack)
 
 }
 
@@ -136,13 +159,11 @@ void stack_construct(struct s_my_stack *my_stack)
 //! @param[in] int num - number which will be put in stack
 //!
 //! @note Error codes 1 - if stack is full
-//!                   2 - memory or pointer error before push
-//!                   3 - memory or pointer error after push
+//!
 //!------------------------------------------------------------------------------------------
 void stack_push(struct s_my_stack *my_stack, data_type num)
 {
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 2;
+    STACK_ASSERT(my_stack)
 
     if(my_stack->counter != Max_size_of_my_stack)
     {
@@ -154,8 +175,7 @@ void stack_push(struct s_my_stack *my_stack, data_type num)
         Err_code = 1;
     }
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 3;
+    STACK_ASSERT(my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -163,9 +183,7 @@ void stack_push(struct s_my_stack *my_stack, data_type num)
 //!
 //! @param[in] struct s_my_stack *my_stack - stack we are working on
 //!
-//! @note Error codes 4 - memory or pointer error before pop
-//!                   5 - memory or pointer error after pop
-//!                   -1 - stack is empty
+//! @note Error codes 101 - stack is empty
 //!
 //! @param[out] data_type num - number (or something) from stuck
 //!------------------------------------------------------------------------------------------
@@ -173,8 +191,7 @@ data_type stack_pop(struct s_my_stack *my_stack)
 {
     int num = 0;
 
-    if(is_stack_ok(my_stack) == -1)
-        return 4;
+    STACK_ASSERT(my_stack)
 
     if(my_stack->counter > 0)
     {
@@ -183,17 +200,13 @@ data_type stack_pop(struct s_my_stack *my_stack)
         return num;
 
     }
-    else if(is_stack_ok(my_stack) <= -1)
-    {
-        Err_code = 5;
-        return -1;
-    }
     else
     {
-        Err_code = -1;
+        Err_code = 101;
         return -1;
     }
 
+    STACK_ASSERT(my_stack)
 
 }
 
@@ -202,21 +215,17 @@ data_type stack_pop(struct s_my_stack *my_stack)
 //!
 //! @param[in] struct s_my_stack *my_stack - stack we are working on
 //!
-//! @note Error codes 14 - memory or pointer error before mul
-//!                   15 - memory or pointer error after mul
 //!------------------------------------------------------------------------------------------
 void stack_mul(struct s_my_stack *my_stack)
 {
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 14;
+    STACK_ASSERT(my_stack)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num * fir_num);
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 15;
+    STACK_ASSERT(my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -224,21 +233,17 @@ void stack_mul(struct s_my_stack *my_stack)
 //!
 //! @param[in] struct s_my_stack *my_stack - stack we are working on
 //!
-//! @note Error codes 13 - memory or pointer error before sub
-//!                   12 - memory or pointer error after sub
 //!------------------------------------------------------------------------------------------
 void stack_sub(struct s_my_stack *my_stack)
 {
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 13;
+    STACK_ASSERT(my_stack)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num - fir_num);
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 12;
+    STACK_ASSERT(my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -246,14 +251,11 @@ void stack_sub(struct s_my_stack *my_stack)
 //!
 //! @param[in] struct s_my_stack *my_stack - stack we are working on
 //!
-//! @note Error codes 10 - memory or pointer error before div
-//!                   11 - memory or pointer error after div
-//!                   100 - if num 1 / 0
+//! @note Error codes 100 - if num 1 / 0
 //!------------------------------------------------------------------------------------------
 void stack_div(struct s_my_stack *my_stack)
 {
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 10;
+    STACK_ASSERT(my_stack)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
@@ -266,8 +268,7 @@ void stack_div(struct s_my_stack *my_stack)
 
     stack_push(my_stack, sec_num / fir_num);
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 11;
+    STACK_ASSERT(my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -275,65 +276,33 @@ void stack_div(struct s_my_stack *my_stack)
 //!
 //! @param[in] struct s_my_stack *my_stack - stack we are working on
 //!
-//! @note Error codes 8 - memory or pointer error before add
-//!                   9 - memory or pointer error after add
 //!------------------------------------------------------------------------------------------
 void stack_add(struct s_my_stack *my_stack)
 {
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 8;
+    STACK_ASSERT(my_stack)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num + fir_num);
 
-    if(is_stack_ok(my_stack) == -1)
-        Err_code = 9;
+    STACK_ASSERT(my_stack)
 }
 
 
 //!------------------------------------------------------------------------------------------
-//! This function prints error messages about last error
+//! This function prints user error messages about last error
 //!
 //! @param Err_code - code of last error
 //!------------------------------------------------------------------------------------------
 void err_print()
 {
     if(Err_code == -1)
-        printf("!!!  ERROR_PRINT - STACK_IS_EMPTY  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 1)
-        printf("!!!  ERROR_PRINT - END_OF_MEMORY  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 2)
-        printf("!!!  ERROR_PRINT - ERROR_IN_PUSH_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 3)
-        printf("!!!  ERROR_PRINT - ERROR_IN_PUSH_END  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 4)
-        printf("!!!  ERROR_PRINT - ERROR_IN_POP_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 5)
-        printf("!!!  ERROR_PRINT - ERROR_IN_PUSH_END  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 6)
-        printf("!!!  ERROR_PRINT - ERROR_IN_CREATE_STACK_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 7)
-        printf("!!!  ERROR_PRINT - ERROR_IN_CREATE_STACK_END  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 8)
-        printf("!!!  ERROR_PRINT - ERROR_IN_ADD_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 9)
-        printf("!!!  ERROR_PRINT - ERROR_IN_ADD_END (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 10)
-        printf("!!!  ERROR_PRINT - ERROR_IN_DIV_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 11)
-        printf("!!!  ERROR_PRINT - ERROR_IN_DIV_END  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 12)
-        printf("!!!  ERROR_PRINT - ERROR_IN_SUB_END  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 13)
-        printf("!!!  ERROR_PRINT - ERROR_IN_SUB_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 14)
-        printf("!!!  ERROR_PRINT - ERROR_IN_MUL_START  (Err_code = %d) !!!\n\n", Err_code);
-    else if(Err_code == 15)
-        printf("!!!  ERROR_PRINT - ERROR_IN_MUL_END  (Err_code = %d) !!!\n\n", Err_code);
+        printf("!!!  ERROR_PRINT - STACK_IS_FULL  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 100)
         printf("!!!  ERROR_PRINT - ERROR_IN_DIV I cann't do num / 0  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 101)
+        printf("!!!  ERROR_PRINT - STACK_IS_EMPTY  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code != 0)
         printf("!!! UNKNOWN_ERROR (Err_code = %d) !!!\n\n", Err_code);
 
@@ -349,8 +318,35 @@ int is_stack_ok(struct s_my_stack *my_stack)
     if(my_stack &&
        my_stack->counter <= Max_size_of_my_stack &&
        my_stack->counter >= 0 &&
-       my_stack->data)
+       my_stack->data &&
+       my_stack->start_canerry_men == Cannery_security_check &&
+       my_stack->end_cannery_men == Cannery_security_check
+        )
         return 0;
     else
         return -1;
+}
+
+
+void info_dump(struct s_my_stack *my_stack, int is_err)
+{
+    FILE *dump = fopen("dump.txt","w");
+    fseek(dump, 0, SEEK_END);
+
+    int i = 0;
+
+    fprintf(dump, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    fprintf(dump, "We are work with stack %s \n", NAME_OF( my_stack ));
+    fprintf(dump, "dump from line = %d \n", __LINE__);
+
+    if(is_err == 1)
+        fprintf(dump, "!!! EEROR !!!\n in line = %d \n in file = %s \n",__LINE__,__FILE__);
+
+    while(i != Max_size_of_my_stack)
+    {
+        fprintf(dump, "%s.data[%d] = %d \n", NAME_OF( my_stack ), i, my_stack->data[i]);
+        i++;
+    }
+
+    fclose(dump);
 }
