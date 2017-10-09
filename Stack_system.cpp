@@ -327,7 +327,15 @@ int is_stack_ok(struct s_my_stack *my_stack)
         return -1;
 }
 
-
+//!-----------------------------------------------------------------------------------------
+//!
+//! This function creates dump
+//!
+//! @param[in] struct s_my_stack *my_stack - stack which we check
+//! @param[in] int is_err - 0 - if no need in err_print
+//!                         1 - if need err_ print
+//!
+//!-----------------------------------------------------------------------------------------
 void info_dump(struct s_my_stack *my_stack, int is_err)
 {
     FILE *dump = fopen("dump.txt","w");
