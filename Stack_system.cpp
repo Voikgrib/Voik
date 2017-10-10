@@ -6,13 +6,13 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#define STACK_ASSERT( stack )                                                                   \
+#define STACK_ASSERT( stack , line)                                                             \
     if((is_stack_ok(stack) == -1))                                                              \
         {                                                                                       \
-            info_dump(stack, 1);                                                                \
+            info_dump(stack, 1, line);                                                          \
         }                                                                                       \
         else                                                                                    \
-            info_dump(stack, 0);                                                                \
+            info_dump(stack, 0, line);                                                          \
 
 
 #define NAME_OF( name )             #name
@@ -45,7 +45,7 @@ void stack_mul(struct s_my_stack *my_stack);
 void stack_sub(struct s_my_stack *my_stack);
 void stack_div(struct s_my_stack *my_stack);
 void com_cleaner(char* command, int com_size);
-void info_dump(struct s_my_stack *my_stack, int is_err);
+void info_dump(struct s_my_stack *my_stack, int is_err, int line);
 void err_print(void);
 
 //!------------------------------------------------------------------------------------------
@@ -79,6 +79,9 @@ int main()
     printf("Stack created!\n");
 
     stack_construct(&stack_1);
+
+    FILE *dump = fopen("dump.txt","wb");
+    fclose(dump);
 
     while(command_num != End)
     {
@@ -148,7 +151,7 @@ void stack_construct(struct s_my_stack *my_stack)
         i++;
     }
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
 }
 
@@ -163,7 +166,7 @@ void stack_construct(struct s_my_stack *my_stack)
 //!------------------------------------------------------------------------------------------
 void stack_push(struct s_my_stack *my_stack, data_type num)
 {
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     if(my_stack->counter != Max_size_of_my_stack)
     {
@@ -175,7 +178,7 @@ void stack_push(struct s_my_stack *my_stack, data_type num)
         Err_code = 1;
     }
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -191,7 +194,7 @@ data_type stack_pop(struct s_my_stack *my_stack)
 {
     int num = 0;
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     if(my_stack->counter > 0)
     {
@@ -206,7 +209,7 @@ data_type stack_pop(struct s_my_stack *my_stack)
         return -1;
     }
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
 }
 
@@ -218,14 +221,14 @@ data_type stack_pop(struct s_my_stack *my_stack)
 //!------------------------------------------------------------------------------------------
 void stack_mul(struct s_my_stack *my_stack)
 {
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num * fir_num);
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -236,14 +239,14 @@ void stack_mul(struct s_my_stack *my_stack)
 //!------------------------------------------------------------------------------------------
 void stack_sub(struct s_my_stack *my_stack)
 {
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num - fir_num);
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -255,7 +258,7 @@ void stack_sub(struct s_my_stack *my_stack)
 //!------------------------------------------------------------------------------------------
 void stack_div(struct s_my_stack *my_stack)
 {
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
@@ -268,7 +271,7 @@ void stack_div(struct s_my_stack *my_stack)
 
     stack_push(my_stack, sec_num / fir_num);
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 }
 
 //!------------------------------------------------------------------------------------------
@@ -279,14 +282,14 @@ void stack_div(struct s_my_stack *my_stack)
 //!------------------------------------------------------------------------------------------
 void stack_add(struct s_my_stack *my_stack)
 {
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 
     data_type fir_num = stack_pop(my_stack);
     data_type sec_num = stack_pop(my_stack);
 
     stack_push(my_stack, sec_num + fir_num);
 
-    STACK_ASSERT(my_stack)
+    STACK_ASSERT(my_stack, __LINE__)
 }
 
 
@@ -336,19 +339,20 @@ int is_stack_ok(struct s_my_stack *my_stack)
 //!                         1 - if need err_ print
 //!
 //!-----------------------------------------------------------------------------------------
-void info_dump(struct s_my_stack *my_stack, int is_err)
+void info_dump(struct s_my_stack *my_stack, int is_err, int line)
 {
-    FILE *dump = fopen("dump.txt","w");
+    FILE *dump = fopen("dump.txt","a+");
+
     fseek(dump, 0, SEEK_END);
 
     int i = 0;
 
     fprintf(dump, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     fprintf(dump, "We are work with stack %s \n", NAME_OF( my_stack ));
-    fprintf(dump, "dump from line = %d \n", __LINE__);
+    fprintf(dump, "dump from line = %d \n",line);
 
     if(is_err == 1)
-        fprintf(dump, "!!! EEROR !!!\n in line = %d \n in file = %s \n",__LINE__,__FILE__);
+        fprintf(dump, "!!! EEROR !!!\n in line = %d \n in file = %s \n",line ,__FILE__);
 
     while(i != Max_size_of_my_stack)
     {
