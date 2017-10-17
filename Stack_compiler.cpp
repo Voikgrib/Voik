@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<string.h>
 
-
 int Err_code = 0;
 
 const int Push = '1';
@@ -22,10 +21,11 @@ void file_read(FILE *prog, long int size_of_prog, char* my_buff);
 void compile_prog(char* my_buff, char* comp_my_buff, long int size_of_prog);
 void s_n_t_sub(char* my_buff, long int size_of_prog);
 void buf_clean(char* my_buff, long int size_buff);
+void err_print(void);
 
 //!-------------------------------------------------------------------------------
 //!
-//! Compiler my program in my assembler
+//! Compiler my program in my assembler  V - 1.1
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -113,6 +113,7 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
     long int cur_poz = 0;
     int is_com = yes;
     int is_end = no;
+    int is_err_end = no;
     int skip = 0;
     int i = 0;
 
@@ -174,12 +175,24 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
             comp_my_buf[i++] = '\n';
             cur_poz++;
         }
+        else if(my_buff[cur_poz] != '\0' && is_com == yes)
+        {
+            Err_code = 1;
+            is_err_end = yes;
+        }
         else
             cur_poz++;
 
 
         if(is_end == yes)
             return;
+
+        if(is_err_end == yes)
+        {
+            err_print();
+            buf_clean(comp_my_buf, size_of_prog);
+            return;
+        }
     }
 }
 
@@ -261,4 +274,13 @@ int str_get(char* my_buff, char* com_buf, long int cur_poz, long int buf_size, l
     }
 
     return skip;
+}
+
+
+void err_print(void)
+{
+    if(Err_code == 1)
+        printf("SYNTAX_ERR!!! (Err_code = %d)", Err_code);
+    else if(Err_code == -1)
+        printf("STR_GET_ERR!!! (Err_code = %d)", Err_code);
 }

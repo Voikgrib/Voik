@@ -22,7 +22,8 @@
 
 typedef int data_type;
 
-const long int Max_size_of_my_stack = 10;
+const long int Max_size_of_my_stack = 20;
+const long int Max_size_of_num_data = 20;
 const int Poizon_num = '\0';
 const int Cannery_security_check = 228;
 const int Push = 1;
@@ -36,7 +37,10 @@ const int End = 0;
 int Err_code = 0;
 
 data_type stack_pop(struct s_my_stack *my_stack);
+
 int is_stack_ok(struct s_my_stack *my_stack);
+
+long int get_file_size(FILE *prog);
 
 void stack_add(struct s_my_stack *my_stack);
 void stack_construct(struct s_my_stack *my_stack);
@@ -45,8 +49,13 @@ void stack_mul(struct s_my_stack *my_stack);
 void stack_sub(struct s_my_stack *my_stack);
 void stack_div(struct s_my_stack *my_stack);
 void com_cleaner(char* command, int com_size);
+void com_worker(struct s_my_stack *my_stack, char *my_buff);
 void info_dump(struct s_my_stack *my_stack, int is_err, int line);
 void err_print(void);
+void file_read(FILE *prog, long int size_of_prog, char* my_buff);
+void buf_clean(char* my_buff, long int size_buff);
+void dump_clean(void);
+
 
 //!------------------------------------------------------------------------------------------
 //! Declare structure s_my_stack
@@ -58,12 +67,13 @@ struct s_my_stack
 {
     int start_canerry_men;
     char data [Max_size_of_my_stack];
+    char num_data [Max_size_of_num_data];
     int counter;
     int end_cannery_men;
 };
 
 //!------------------------------------------------------------------------------------------
-//! This program contains stack and some function with it
+//! This program contains stack and some function with it   V - 1.1
 //!
 //! Author: Vladimir Gribanov
 //!------------------------------------------------------------------------------------------
@@ -71,47 +81,63 @@ int main()
 {
     FILE *compile = fopen("compile.txt","rt");
 
-    int command_num = -1 ;
-    data_type num = 0;
+    long int size_of_prog = 0;
+
+    size_of_prog = get_file_size(compile);
+
+    char *my_buff = new char [size_of_prog];
+
+    file_read(compile, size_of_prog, my_buff);
 
     struct s_my_stack stack_1;
 
-    printf("Stack created!\n");
-
     stack_construct(&stack_1);
 
-    FILE *dump = fopen("dump.txt","wb");
-    fclose(dump);
+    com_worker(&stack_1, my_buff);
+
+    fclose(compile);
+
+    return Err_code;
+}
+
+void com_worker(struct s_my_stack *my_stack, char *my_buff)
+{
+    long int cur_poz = 0;
+    int command_num = -1;
+
+    data_type num = 0;
+
+    dump_clean();
 
     while(command_num != End)
     {
-        fscanf(compile, "%d", &command_num);
+        command_num = my_buff[cur_poz];
 
         if(command_num == Push)
         {
-            fscanf(compile, "%d", &num);
-            stack_push(&stack_1, num);
+            num = my_buff[++cur_poz];
+            stack_push(my_stack, num);
         }
         else if(command_num == Pop)
         {
-            num = stack_pop(&stack_1);
+            num = stack_pop(my_stack);
             printf("num = %d \n", num);
         }
         else if(command_num == Add)
         {
-            stack_add(&stack_1);
+            stack_add(my_stack);
         }
         else if(command_num == Mul)
         {
-            stack_mul(&stack_1);
+            stack_mul(my_stack);
         }
         else if(command_num == Sub)
         {
-            stack_sub(&stack_1);
+            stack_sub(my_stack);
         }
         else if(command_num == Div)
         {
-            stack_div(&stack_1);
+            stack_div(my_stack);
         }
 
         if(Err_code != 0)
@@ -119,11 +145,10 @@ int main()
             err_print();
             Err_code = 0;
         }
+
+        cur_poz++;
     }
 
-    fclose(compile);
-
-    return Err_code;
 }
 
 //!------------------------------------------------------------------------------------------
@@ -360,5 +385,78 @@ void info_dump(struct s_my_stack *my_stack, int is_err, int line)
         i++;
     }
 
+    fclose(dump);
+}
+
+//!-------------------------------------------------------------------------------
+//!
+//! This function get size of reading file
+//!
+//! @param[in] FILE *prog - file which we worked
+//!
+//! @param[out] size of file
+//!-------------------------------------------------------------------------------
+long int get_file_size(FILE *prog)
+{
+    long int size_of_prog = 0;
+
+    const int zero = 0;
+
+    fseek(prog, zero, SEEK_END);
+    size_of_prog = ftell(prog);
+
+    return size_of_prog;
+}
+
+//!-------------------------------------------------------------------------------
+//!
+//! This function reading file
+//!
+//! @param[in] FILE *prog - file which we worked
+//! @param[in] long int size_of_prog - size of file
+//! @param[in] char *my_buff - buffer, which we worked
+//!
+//!-------------------------------------------------------------------------------
+void file_read(FILE *prog, long int size_of_prog, char *my_buff)
+{
+    const int zero = 0;
+
+    int cur_data = 0;
+    int cur_poz = 0;
+
+    buf_clean(my_buff, size_of_prog);
+
+    fseek(prog, zero, SEEK_SET);
+
+    while(ftell(prog) != size_of_prog)
+    {
+        fscanf(prog, "%d", &cur_data);
+        my_buff[cur_poz++] = cur_data;
+    }
+}
+
+//!-------------------------------------------------------------------------------
+//!
+//! This function clean buffer
+//!
+//! @param[in] char* my_buff - buffer which we worked
+//! @param[in] long int size_buff - size of buffer
+//!
+//!-------------------------------------------------------------------------------
+void buf_clean(char* my_buff, long int size_buff)
+{
+    int i = 0;
+
+    while(i != size_buff)
+    {
+        my_buff[i] = '\0';
+        i++;
+    }
+}
+
+
+void dump_clean(void)
+{
+    FILE *dump = fopen("dump.txt","wb");
     fclose(dump);
 }
