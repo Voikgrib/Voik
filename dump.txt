@@ -1,805 +1,1320 @@
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 0 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 23 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 23 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 23 
-my_stack.data[1] = 22 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 310 
-my_stack.data[0] = 23 
-my_stack.data[1] = 22 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 2 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 22 		 	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 23 
-my_stack.data[1] = 22 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 2 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 22 		 	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 23 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 334 
+counter = 2 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 22 		 	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 0 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 254 
+counter = 2 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 22 		 	 my_stack.num_data[1] = 0  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 45 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 341 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 317 
-my_stack.data[0] = 45 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 45 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 334 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 45 
-my_stack.data[1] = 2 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 254 
+counter = 1 
+my_stack.data[0] = 23 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 0  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 249 
-my_stack.data[0] = 45 
-my_stack.data[1] = 2 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 341 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 45 
-my_stack.data[1] = 2 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 45 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 316 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 0 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 90 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 256 
-my_stack.data[0] = 90 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 323 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 90 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 90 
-my_stack.data[1] = 10 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 316 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 286 
-my_stack.data[0] = 90 
-my_stack.data[1] = 10 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 90 
-my_stack.data[1] = 10 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 2 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 23 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 90 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 323 
+counter = 2 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 23 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 0 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 2 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 23 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 9 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 377 
+counter = 2 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 23 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 299 
-my_stack.data[0] = 9 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 254 
+counter = 2 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 23 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 9 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 254 
+counter = 1 
+my_stack.data[0] = 22 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 9 
-my_stack.data[1] = 4 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 267 
-my_stack.data[0] = 9 
-my_stack.data[1] = 4 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 1 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 9 
-my_stack.data[1] = 4 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 384 
+counter = 1 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 9 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 194 
-my_stack.data[0] = 0 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 226 
+counter = 1 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 206 
-my_stack.data[0] = 5 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 238 
+counter = 2 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 2 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 274 
-my_stack.data[0] = 5 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dump from line = 185 
+counter = 2 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 2 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We are work with stack my_stack 
-dump from line = 222 
-my_stack.data[0] = 5 
-my_stack.data[1] = 0 
-my_stack.data[2] = 0 
-my_stack.data[3] = 0 
-my_stack.data[4] = 0 
-my_stack.data[5] = 0 
-my_stack.data[6] = 0 
-my_stack.data[7] = 0 
-my_stack.data[8] = 0 
-my_stack.data[9] = 0 
-my_stack.data[10] = 0 
-my_stack.data[11] = 0 
-my_stack.data[12] = 0 
-my_stack.data[13] = 0 
-my_stack.data[14] = 0 
-my_stack.data[15] = 0 
-my_stack.data[16] = 0 
-my_stack.data[17] = 0 
-my_stack.data[18] = 0 
-my_stack.data[19] = 0 
+dump from line = 280 
+counter = 2 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 2 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 254 
+counter = 2 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 2 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 254 
+counter = 1 
+my_stack.data[0] = 45 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 226 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 238 
+counter = 1 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 287 
+counter = 1 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 226 
+counter = 1 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 238 
+counter = 2 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 10 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 2 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 10 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 353 
+counter = 2 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 10 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 254 
+counter = 2 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 10 		 	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 254 
+counter = 1 
+my_stack.data[0] = 90 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 226 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 238 
+counter = 1 
+my_stack.data[0] = 9 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 366 
+counter = 1 
+my_stack.data[0] = 9 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 9 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 1 
+my_stack.data[0] = 9 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 254 
+counter = 1 
+my_stack.data[0] = 9 		 	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We are work with stack my_stack 
+dump from line = 185 
+counter = 0 
+my_stack.data[0] = 0   -- POISON --   	 my_stack.num_data[0] = 0  	 my_stack.pointers_data[0] = 0 
+my_stack.data[1] = 0   -- POISON --   	 my_stack.num_data[1] = 22  	 my_stack.pointers_data[1] = 0 
+my_stack.data[2] = 0   -- POISON --   	 my_stack.num_data[2] = 0  	 my_stack.pointers_data[2] = 0 
+my_stack.data[3] = 0   -- POISON --   	 my_stack.num_data[3] = 0  	 my_stack.pointers_data[3] = 0 
+my_stack.data[4] = 0   -- POISON --   	 my_stack.num_data[4] = 0  	 my_stack.pointers_data[4] = 0 
+my_stack.data[5] = 0   -- POISON --   	 my_stack.num_data[5] = 0  	 my_stack.pointers_data[5] = 0 
+my_stack.data[6] = 0   -- POISON --   	 my_stack.num_data[6] = 0  	 my_stack.pointers_data[6] = 0 
+my_stack.data[7] = 0   -- POISON --   	 my_stack.num_data[7] = 0  	 my_stack.pointers_data[7] = 0 
+my_stack.data[8] = 0   -- POISON --   	 my_stack.num_data[8] = 0  	 my_stack.pointers_data[8] = 0 
+my_stack.data[9] = 0   -- POISON --   	 my_stack.num_data[9] = 0  	 my_stack.pointers_data[9] = 0 
+my_stack.data[10] = 0   -- POISON --   	 my_stack.num_data[10] = 0  	 my_stack.pointers_data[10] = 0 
+my_stack.data[11] = 0   -- POISON --   	 my_stack.num_data[11] = 0  	 my_stack.pointers_data[11] = 0 
+my_stack.data[12] = 0   -- POISON --   	 my_stack.num_data[12] = 0  	 my_stack.pointers_data[12] = 0 
+my_stack.data[13] = 0   -- POISON --   	 my_stack.num_data[13] = 0  	 my_stack.pointers_data[13] = 0 
+my_stack.data[14] = 0   -- POISON --   	 my_stack.num_data[14] = 0  	 my_stack.pointers_data[14] = 0 
+my_stack.data[15] = 0   -- POISON --   	 my_stack.num_data[15] = 23  	 my_stack.pointers_data[15] = 0 
+my_stack.data[16] = 0   -- POISON --   	 my_stack.num_data[16] = 0  	 my_stack.pointers_data[16] = 0 
+my_stack.data[17] = 0   -- POISON --   	 my_stack.num_data[17] = 0  	 my_stack.pointers_data[17] = 0 
+my_stack.data[18] = 0   -- POISON --   	 my_stack.num_data[18] = 0  	 my_stack.pointers_data[18] = 0 
+my_stack.data[19] = 0   -- POISON --   	 my_stack.num_data[19] = 0  	 my_stack.pointers_data[19] = 0 

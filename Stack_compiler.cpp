@@ -1,16 +1,9 @@
 
 #include<stdio.h>
 #include<string.h>
+#include"my_assembly_command_info.h"
 
 int Err_code = 0;
-
-const int Push = '1';
-const int Pop = '2';
-const int Add = '3';
-const int Mul = '4';
-const int Sub = '5';
-const int Div = '6';
-const int End = '0';
 
 long int get_file_size(FILE *prog);
 
@@ -25,7 +18,7 @@ void err_print(void);
 
 //!-------------------------------------------------------------------------------
 //!
-//! Compiler my program in my assembler  V - 1.1
+//! Compiler my program in my assembler  V - 1.3
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -109,6 +102,7 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
     const int yes = 1;
     const int no = -1;
     const int com_buff_size = 100;
+    const int num_asci = '0';
 
     long int cur_poz = 0;
     int is_com = yes;
@@ -129,37 +123,55 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
         {
             is_com = no;
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Push;
+            comp_my_buf[i++] = Push + num_asci;
+        }
+        else if(strcmp(com_buff,"jump") == 0 && is_com == yes)
+        {
+            is_com = no;
+            cur_poz = cur_poz + skip;
+            comp_my_buf[i++] = Jum + num_asci;
+        }
+        else if(strcmp(com_buff,"popr") == 0 && is_com == yes)
+        {
+            is_com = no;
+            cur_poz = cur_poz + skip;
+            comp_my_buf[i++] = Pop_reg + num_asci;
+        }
+        else if(strcmp(com_buff,"pushr") == 0 && is_com == yes)
+        {
+            is_com = no;
+            cur_poz = cur_poz + skip;
+            comp_my_buf[i++] = Push_reg + num_asci;
         }
         else if(strcmp(com_buff,"pop") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Pop;
+            comp_my_buf[i++] = Pop + num_asci;
         }
         else if(strcmp(com_buff,"add") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Add;
+            comp_my_buf[i++] = Add + num_asci;
         }
         else if(strcmp(com_buff,"mul") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Mul;
+            comp_my_buf[i++] = Mul + num_asci;
         }
         else if(strcmp(com_buff,"sub") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Sub;
+            comp_my_buf[i++] = Sub + num_asci;
         }
         else if(strcmp(com_buff,"div") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = Div;
+            comp_my_buf[i++] = Div + num_asci;
         }
         else if(strcmp(com_buff,"end") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
-            comp_my_buf[i++] = End;
+            comp_my_buf[i++] = End + num_asci;
             comp_my_buf[i++] = '\n';
             is_end = yes;
         }
@@ -190,6 +202,7 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
         if(is_err_end == yes)
         {
             err_print();
+            printf("ERROR IN %ld POZITION \n", --cur_poz);
             buf_clean(comp_my_buf, size_of_prog);
             return;
         }

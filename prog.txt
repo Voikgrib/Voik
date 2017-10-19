@@ -1,10 +1,15 @@
 push 23
 push 22
+popr 1
+popr 15
+pushr 1
+pushr 15
 add
 push 2
 mul
 push 10
 div
+jump 24
 push 4
 sub
 pop
