@@ -18,14 +18,10 @@
 
 #define NAME_OF( name )             #name
 
+#define FUNC_J( name )              point_j##name(my_stack, fir_reg_n, sec_reg_n, adress, cur_poz, size_of_prog)
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-typedef int data_type;
-
-const long int Max_size_of_my_stack = 20;
-const long int Max_size_of_num_data = 20;
-const long int Max_num_of_pointers = 20;
 
 const int Poizon_num = '\0';
 const int Cannery_security_check = 228;
@@ -38,6 +34,13 @@ int is_stack_ok(struct s_my_stack *my_stack);
 
 long int get_file_size(FILE *prog);
 long int jump(long int jump_point, long int size_of_prog);
+
+long int point_je(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
+long int point_jne(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
+long int point_ja(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
+long int point_jae(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
+long int point_jb(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
+long int point_jbe(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
 
 void stack_construct(struct s_my_stack *my_stack);
 void stack_add(struct s_my_stack *my_stack);
@@ -79,7 +82,7 @@ struct s_my_stack
 };
 
 //!------------------------------------------------------------------------------------------
-//! This program contains stack and some function with it   V - 1.3
+//! This program contains stack and some function with it   V - 1.4
 //!
 //! Author: Vladimir Gribanov
 //!------------------------------------------------------------------------------------------
@@ -117,10 +120,16 @@ void com_worker(struct s_my_stack *my_stack, char *my_buff, long int size_of_pro
 {
     long int cur_poz = 0;
     long int jump_num = 0;
+    long int adress = 0;
+    long int fir_reg_n = -1;
+    long int sec_reg_n = -1;
+    int point_com = 0;
+
     int command_num = -1;
     int reg_num = 0;
 
     data_type num = 0;
+
 
     dump_clean();
 
@@ -173,6 +182,27 @@ void com_worker(struct s_my_stack *my_stack, char *my_buff, long int size_of_pro
                 return;
             else
                 cur_poz = jump_num - 1;
+        }
+        else if(COM_NEEDS_TWO_NUM_AND_POINTER(command_num))
+        {
+            point_com = command_num;
+
+            fir_reg_n = my_buff[++cur_poz];
+            sec_reg_n = my_buff[++cur_poz];
+            adress = my_buff[++cur_poz];
+
+            if(point_com == Je)
+                cur_poz = FUNC_J(e);
+            else if(point_com == Jne)
+                cur_poz = FUNC_J(ne);
+            else if(point_com == Ja)
+                cur_poz = FUNC_J(a);
+            else if(point_com == Jae)
+                cur_poz = FUNC_J(ae);
+            else if(point_com == Jb)
+                cur_poz = FUNC_J(b);
+            else if(point_com == Jbe)
+                cur_poz = FUNC_J(be);
         }
 
         if(Err_code != 0)
@@ -385,6 +415,144 @@ void stack_add(struct s_my_stack *my_stack)
 }
 
 //!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a == b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_je(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] == my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a != b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_jne(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] != my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a > b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_ja(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] > my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a >= b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_jae(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] >= my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a < b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_jb(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] < my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
+//! This function compare two register nums, and if a <= b jump to adress
+//!
+//! @param[in] struct s_my_stack *my_stack -  stack we are working on
+//! @param[in] long int fir_num_reg - number a
+//! @param[in] long int sec_num_reg - number b
+//! @param[in] long int adress - adress if if true
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int size_of_prog - size of my_buff
+//!
+//!------------------------------------------------------------------------------------------
+long int point_jbe(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->pointers_data[fir_num_reg] <= my_stack->pointers_data[sec_num_reg])
+        return jump(adress, size_of_prog);
+    else
+        return cur_pos;
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!------------------------------------------------------------------------------------------
 //! This function jump into pointed place
 //!
 //! @param[in] long int jump_point - jump pointer
@@ -412,6 +580,8 @@ void err_print()
 {
     if(Err_code == -1)
         printf("!!!  ERROR_PRINT - STACK_IS_FULL  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 10)
+        printf("!!!  ERROR_POINTER - UNCORRECT_POINT_DECLARETED  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 100)
         printf("!!!  ERROR_PRINT - ERROR_IN_DIV I cann't do num / 0  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 101)
