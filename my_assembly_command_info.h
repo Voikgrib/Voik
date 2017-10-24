@@ -36,6 +36,19 @@ const long int Max_num_of_pointers = 20;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#define COM_NEEDS_NOTHING( cur_num )                                 \
+            (                                                        \
+            cur_num == Pop ||                                        \
+            cur_num == Add ||                                        \
+            cur_num == Mul ||                                        \
+            cur_num == Sub ||                                        \
+            cur_num == Div ||                                        \
+            cur_num == End                                           \
+            )
+
+
+
+
 #define COM_NEEDS_NUM( cur_num )                                     \
             (                                                        \
             cur_num == Push ||                                       \

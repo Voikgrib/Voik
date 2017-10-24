@@ -1,16 +1,25 @@
+:1
 push 23
 push 22
 popr 1
 popr 15
+:2
 pushr 1
 pushr 15
 add
 push 2
 mul
+:7
 push 10
 div
-jump 24
-push 4
-sub
 pop
+jne 15 1 :2
+jne 12 3 :7
+je 1 2 :2
+push 14
+pop
+push 22
+push 42
+pushr 3
+ja 1 7 :1
 end

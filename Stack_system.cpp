@@ -76,7 +76,6 @@ struct s_my_stack
     int start_canerry_men;
     char data [Max_size_of_my_stack];
     char num_data [Max_size_of_num_data];
-    char pointers_data [Max_num_of_pointers];
     int counter;
     int end_cannery_men;
 };
@@ -236,7 +235,6 @@ void stack_construct(struct s_my_stack *my_stack)
 
     buf_clean(my_stack->data, Max_size_of_my_stack);
     buf_clean(my_stack->num_data, Max_size_of_num_data);
-    buf_clean(my_stack->pointers_data, Max_num_of_pointers);
 
     STACK_ASSERT(my_stack, __LINE__)
 
@@ -366,7 +364,11 @@ void reg_pop(struct s_my_stack *my_stack, long int cur_reg_num)
     data_type num = 0;
 
     num = stack_pop(my_stack);
-    my_stack->num_data[cur_reg_num] = num;
+
+    if(num != -1)
+        my_stack->num_data[cur_reg_num] = num;
+    else
+        Err_code = 201;
 
     STACK_ASSERT(my_stack, __LINE__)
 }
@@ -429,7 +431,7 @@ long int point_je(struct s_my_stack *my_stack, long int fir_num_reg, long int se
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] == my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] == my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -452,7 +454,7 @@ long int point_jne(struct s_my_stack *my_stack, long int fir_num_reg, long int s
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] != my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] != my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -475,7 +477,7 @@ long int point_ja(struct s_my_stack *my_stack, long int fir_num_reg, long int se
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] > my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] > my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -498,7 +500,7 @@ long int point_jae(struct s_my_stack *my_stack, long int fir_num_reg, long int s
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] >= my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] >= my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -521,7 +523,7 @@ long int point_jb(struct s_my_stack *my_stack, long int fir_num_reg, long int se
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] < my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] < my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -544,7 +546,7 @@ long int point_jbe(struct s_my_stack *my_stack, long int fir_num_reg, long int s
 {
     STACK_ASSERT(my_stack, __LINE__)
 
-    if(my_stack->pointers_data[fir_num_reg] <= my_stack->pointers_data[sec_num_reg])
+    if(my_stack->num_data[fir_num_reg] <= my_stack->num_data[sec_num_reg])
         return jump(adress, size_of_prog);
     else
         return cur_pos;
@@ -588,6 +590,8 @@ void err_print()
         printf("!!!  ERROR_PRINT - STACK_IS_EMPTY  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 200)
         printf("!!!  ERROR_PRINT - ERROR_IN_JUMP, wrong pointer (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == 201)
+        printf("!!!  ERROR_PRINT - ERROR_IN_POPR, stack is empty (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code != 0)
         printf("!!! UNKNOWN_ERROR (Err_code = %d) !!!\n\n", Err_code);
 
@@ -606,8 +610,7 @@ int is_stack_ok(struct s_my_stack *my_stack)
        my_stack->data &&
        my_stack->start_canerry_men == Cannery_security_check &&
        my_stack->end_cannery_men == Cannery_security_check &&
-       my_stack->num_data &&
-       my_stack->pointers_data
+       my_stack->num_data
         )
         return 0;
     else
@@ -637,7 +640,10 @@ void info_dump(struct s_my_stack *my_stack, int is_err, int line)
     fprintf(dump, "counter = %d \n", my_stack->counter);
 
     if(is_err == 1)
+    {
+        printf("!!! ERROR !!! see in dump \n");
         fprintf(dump, "!!! EEROR !!!\n in line = %d \n in file = %s \n",line ,__FILE__);
+    }
 
     while(i != Max_size_of_my_stack)
     {
@@ -649,8 +655,6 @@ void info_dump(struct s_my_stack *my_stack, int is_err, int line)
             fprintf(dump, "\t\t");
 
         fprintf(dump, " \t %s[%d] = %d ", NAME_OF( my_stack.num_data ), i, my_stack->num_data[i]);
-        fprintf(dump, " \t %s[%d] = %d ", NAME_OF( my_stack.pointers_data ), i, my_stack->pointers_data[i]);
-
         fprintf(dump, "\n");
         i++;
     }
@@ -700,8 +704,8 @@ void file_read(FILE *prog, long int size_of_prog, char *my_buff)
 
     while(ftell(prog) != size_of_prog)
     {
-        fscanf(prog, "%d", &cur_data);
-        my_buff[cur_poz++] = cur_data;
+        if(fscanf(prog, "%d", &cur_data) != 0)
+            my_buff[cur_poz++] = cur_data;
     }
 }
 

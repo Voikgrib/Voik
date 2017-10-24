@@ -1,0 +1,26 @@
+
+:2
+push 23 
+push 22 
+popr 1 
+popr 15
+:0 
+pushr 1 
+pushr 15 
+add 
+push 2 
+mul
+:1 
+push 10 
+div 
+pop 
+jne 15 1 :0
+jne 12 3 :1
+je 1 2 :0
+push 14 
+pop 
+push 22 
+push 42 
+pushr 3 
+ja 1 7 :2
+end                       
