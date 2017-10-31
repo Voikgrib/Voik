@@ -1,7 +1,10 @@
 
+#include<TXLib.h>
 #include<stdio.h>
 #include<assert.h>
 #include<string.h>
+#include<windows.h>
+#include<mmsystem.h>
 #include"my_assembly_command_info.h"
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,12 +45,18 @@ long int point_jae(struct s_my_stack *my_stack, long int fir_num_reg, long int s
 long int point_jb(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
 long int point_jbe(struct s_my_stack *my_stack, long int fir_num_reg, long int sec_num_reg, long int adress, long int cur_pos, long int size_of_prog);
 
+long int func_call(struct s_my_stack *my_stack, long int size_of_prog, long int cur_pos, long int adr_of_func);
+long int func_pop_or_ret(struct s_my_stack *my_stack);
+void func_push(struct s_my_stack *my_stack, int num);
+
 void stack_construct(struct s_my_stack *my_stack);
 void stack_add(struct s_my_stack *my_stack);
 void stack_push(struct s_my_stack *my_stack, data_type num);
 void stack_mul(struct s_my_stack *my_stack);
 void stack_sub(struct s_my_stack *my_stack);
 void stack_div(struct s_my_stack *my_stack);
+
+void meow_mrrrr(void);
 
 void reg_pop(struct s_my_stack *my_stack, long int cur_reg_num);
 void reg_push(struct s_my_stack *my_stack, long int cur_reg_num);
@@ -66,6 +75,7 @@ void info_dump(struct s_my_stack *my_stack, int is_err, int line);
 //!
 //! @param char data[] - massif with stack data
 //! @param int counter - pointer on current position
+//! @param int func_counter - pointer on current position in function return
 //! @param int start_canerry_men - start cannery security
 //! @param char num_data [] - massif with saved numbers
 //! @param char pointers_data [] - massif with pointers (not working mow)
@@ -76,12 +86,14 @@ struct s_my_stack
     int start_canerry_men;
     char data [Max_size_of_my_stack];
     char num_data [Max_size_of_num_data];
+    char func_data [Max_num_of_func];
     int counter;
+    int func_counter;
     int end_cannery_men;
 };
 
 //!------------------------------------------------------------------------------------------
-//! This program contains stack and some function with it   V - 1.4
+//! This program contains stack and some function with it   v 1.5  UPD functions and returns!!!  NOT TESRED
 //!
 //! Author: Vladimir Gribanov
 //!------------------------------------------------------------------------------------------
@@ -203,6 +215,18 @@ void com_worker(struct s_my_stack *my_stack, char *my_buff, long int size_of_pro
             else if(point_com == Jbe)
                 cur_poz = FUNC_J(be);
         }
+        else if(command_num == Fcall)
+        {
+            cur_poz = func_call(my_stack, size_of_prog, cur_poz, my_buff[++cur_poz]);
+        }
+        else if(command_num == Fret)
+        {
+            cur_poz = func_pop_or_ret(my_stack);
+        }
+        else if(command_num == Meow)
+        {
+            meow_mrrrr();
+        }
 
         if(Err_code != 0)
         {
@@ -216,6 +240,99 @@ void com_worker(struct s_my_stack *my_stack, char *my_buff, long int size_of_pro
 
 }
 
+//!--------------------------------------------------------------------------------------------
+//!
+//! Meow meow meow, mrrr, meow! Meow - mrrrr :3  (Ia xotel spat, poetomy ono rabotaet ne ochen)
+//!
+//!--------------------------------------------------------------------------------------------
+void meow_mrrrr(void)
+{
+    printf("\n\n./\\_/\\\n(<o.o>)\n..=*=..\n(\\.||./)~~**\n\nMeow ^^\n\n\n");
+
+    ///PlaySoundA("meow.wav", NULL, SND_FILENAME);
+
+    system("start meow.wav");
+}
+
+//!--------------------------------------------------------------------------------------------
+//!
+//! Call function by pointer after first end && push function call adress in return stack
+//!
+//! @param[in] struct s_my_stack *my_stack - stack which we worked on
+//! @param[in] long int size_of_prog - size of program
+//! @param[in] long int cur_pos - current position
+//! @param[in] long int adr_of_func - adress where function was called
+//!
+//!--------------------------------------------------------------------------------------------
+long int func_call(struct s_my_stack *my_stack, long int size_of_prog, long int cur_pos, long int adr_of_func)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    func_push(my_stack, cur_pos - 1);
+
+    return jump(adr_of_func - 1, size_of_prog);// -2
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!--------------------------------------------------------------------------------------------
+//!
+//! Push in command stack
+//!
+//! @param[in] struct s_my_stack *my_stack - stack which we worked on
+//! @param[in] int num - pushed number
+//!
+//! @note Error codes -30 - if stack is full
+//!
+//!--------------------------------------------------------------------------------------------
+void func_push(struct s_my_stack *my_stack, int num)
+{
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->func_counter != Max_size_of_my_stack)
+    {
+        my_stack->func_data[my_stack->func_counter] = num;
+        my_stack->func_counter++;
+    }
+    else
+    {
+        Err_code = -30;
+    }
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+//!--------------------------------------------------------------------------------------------
+//!
+//! Pop from command stack
+//!
+//! @param[in] struct s_my_stack *my_stack - stack which we worked on
+//!
+//! @note Error codes -30 - if stack is empty
+//!
+//!--------------------------------------------------------------------------------------------
+long int func_pop_or_ret(struct s_my_stack *my_stack)
+{
+    int num = 0;
+
+    STACK_ASSERT(my_stack, __LINE__)
+
+    if(my_stack->func_counter > 0)
+    {
+        num = my_stack->func_data[--my_stack->func_counter];
+        my_stack->func_data[my_stack->func_counter] = Poizon_num;
+        return num;
+    }
+    else
+    {
+        Err_code = -31;
+        return -1;
+    }
+
+    STACK_ASSERT(my_stack, __LINE__)
+}
+
+
 //!------------------------------------------------------------------------------------------
 //! This function initialize stack: fulls data[] = {}, set counter = 0
 //!
@@ -227,6 +344,7 @@ void com_worker(struct s_my_stack *my_stack, char *my_buff, long int size_of_pro
 void stack_construct(struct s_my_stack *my_stack)
 {
     my_stack->counter = 0;
+    my_stack->func_counter = 0;
     my_stack->end_cannery_men = Cannery_security_check;
     my_stack->start_canerry_men = Cannery_security_check;
 
@@ -235,6 +353,7 @@ void stack_construct(struct s_my_stack *my_stack)
 
     buf_clean(my_stack->data, Max_size_of_my_stack);
     buf_clean(my_stack->num_data, Max_size_of_num_data);
+    buf_clean(my_stack->func_data, Max_num_of_func);
 
     STACK_ASSERT(my_stack, __LINE__)
 
@@ -294,7 +413,6 @@ data_type stack_pop(struct s_my_stack *my_stack)
     }
 
     STACK_ASSERT(my_stack, __LINE__)
-
 }
 
 //!------------------------------------------------------------------------------------------
@@ -584,6 +702,10 @@ void err_print()
         printf("!!!  ERROR_PRINT - STACK_IS_FULL  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 10)
         printf("!!!  ERROR_POINTER - UNCORRECT_POINT_DECLARETED  (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == -30)
+        printf("!!!  ERROR_POINTER - so many recursions (Err_code = %d) !!!\n\n", Err_code);
+    else if(Err_code == -31)
+        printf("!!!  ERROR_POINTER - no function, but return (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 100)
         printf("!!!  ERROR_PRINT - ERROR_IN_DIV I cann't do num / 0  (Err_code = %d) !!!\n\n", Err_code);
     else if(Err_code == 101)
@@ -654,7 +776,7 @@ void info_dump(struct s_my_stack *my_stack, int is_err, int line)
         else
             fprintf(dump, "\t\t");
 
-        fprintf(dump, " \t %s[%d] = %d ", NAME_OF( my_stack.num_data ), i, my_stack->num_data[i]);
+        fprintf(dump, " \t %s[%d] = %d \t %s[%d] = %d", NAME_OF( my_stack.num_data ), i, my_stack->num_data[i], NAME_OF( my_stack.func_data ), i, my_stack->func_data[i]);
         fprintf(dump, "\n");
         i++;
     }

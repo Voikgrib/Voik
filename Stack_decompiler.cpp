@@ -3,6 +3,19 @@
 #include<string.h>
 #include"my_assembly_command_info.h"
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#define COMMAND( com_num, com_print)                                   \
+        if(cur_num == com_num)                                         \
+        {                                                              \
+            fprintf(dec_prog, "\n");                                   \
+            fprintf(dec_prog, com_print);                              \
+            fprintf(dec_prog, " ");                                    \
+        }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 long int get_file_size(FILE *prog);
 long int scan_num(char *my_buff, long int cur_pos);
@@ -16,7 +29,7 @@ void buf_fill(char* my_buff, long int size_buff,int fill_counter);
 
 //!-------------------------------------------------------------------------------
 //!
-//! Decompiler my assembler in my program  V - 1.4
+//! Decompiler my assembler in my program  V - 1.5... Meow ^^ IT'S WORKING!!!!!!
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -57,6 +70,7 @@ void decompile(char* my_buff, long int size_of_prog)
     const int yes = 0;
     const int no = 1;
     const int three_nums_time = 3;
+    const int sec_end = 3;
 
     long int cur_pos = 0;
     long int point_num = 0;
@@ -67,7 +81,7 @@ void decompile(char* my_buff, long int size_of_prog)
 
     data_type cur_num = 0;
 
-    while(is_end == no && cur_pos < size_of_prog)
+    while(is_end != sec_end && cur_pos < size_of_prog)
     {
         cur_num = scan_num(my_buff, cur_pos);
 
@@ -75,20 +89,23 @@ void decompile(char* my_buff, long int size_of_prog)
             cur_pos++;
 
         if(cur_pos == size_of_prog)
-            is_end = yes;
+            is_end = sec_end;
 
         if(is_com == yes && COM_NEEDS_NOTHING(cur_num))
         {
             command_fprint(dec_prog, cur_num);
 
             if(cur_num == End)
-                is_end = yes;
+                is_end++;
 
         }
         else if(is_com == yes && COM_NEEDS_NUM(cur_num))
         {
             command_fprint(dec_prog, cur_num);
             is_com = no;
+
+            if(cur_num == Fcall)
+                is_point = yes;
         }
         else if(is_com == yes && COM_NEEDS_TWO_NUM_AND_POINTER(cur_num))
         {
@@ -291,38 +308,11 @@ long int point_checker(char *point_data, long int scn_n)
 void command_fprint(FILE *dec_prog, int cur_num)
 {
 
-    if(cur_num == Push)
-        fprintf(dec_prog, "\npush ");
-    else if(cur_num == Pop)
-        fprintf(dec_prog, "\npop ");
-    else if(cur_num == Add)
-        fprintf(dec_prog, "\nadd ");
-    else if(cur_num == Mul)
-        fprintf(dec_prog, "\nmul ");
-    else if(cur_num == Sub)
-        fprintf(dec_prog, "\nsub ");
-    else if(cur_num == Div)
-        fprintf(dec_prog, "\ndiv ");
-    else if(cur_num == Jum)
-        fprintf(dec_prog, "\njump ");
-    else if(cur_num == Push_reg)
-        fprintf(dec_prog, "\npushr ");
-    else if(cur_num == Pop_reg)
-        fprintf(dec_prog, "\npopr ");
-    else if(cur_num == Je)
-        fprintf(dec_prog, "\nje ");
-    else if(cur_num == Jne)
-        fprintf(dec_prog, "\njne ");
-    else if(cur_num == Ja)
-        fprintf(dec_prog, "\nja ");
-    else if(cur_num == Jae)
-        fprintf(dec_prog, "\njae ");
-    else if(cur_num == Jb)
-        fprintf(dec_prog, "\njb ");
-    else if(cur_num == Jbe)
-        fprintf(dec_prog, "\njbe ");
-    else if(cur_num == End)
+    #include"my_command_shortcut.h"
+
+    if(cur_num == End)
         fprintf(dec_prog, "\nend ");
+
 }
 
 //!-------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+push 1
+push 1
+fcall :2
+end
+:2
+add
+popr 5
+pushr 5
+pushr 5
+pushr 5
+pop
+fcall :2
+return
+end

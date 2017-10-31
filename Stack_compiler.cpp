@@ -7,29 +7,40 @@
 
 #define J_FUNC_COMPILE( name )                                          \
             {                                                           \
-            is_com = three_nums_time;                                   \
-            cur_poz = cur_poz + skip;                                   \
-            comp_my_buf[i++] = name;                                    \
-            cur_adress++;                                               \
+                is_com = three_nums_time;                               \
+                cur_poz = cur_poz + skip;                               \
+                comp_my_buf[i++] = name;                                \
+                cur_adress++;                                           \
             }
 
 
 #define FUNC_NEEDS_NUM_COMPILE( name )                                  \
             {                                                           \
-            is_com = no;                                                \
-            cur_poz = cur_poz + skip;                                   \
-            comp_my_buf[i++] = name;                                    \
-            cur_adress++;                                               \
+                is_com = no;                                            \
+                cur_poz = cur_poz + skip;                               \
+                comp_my_buf[i++] = name;                                \
+                cur_adress++;                                           \
             }
 
 
 #define FUNC_NO_NUM_COMPILE( name )                                     \
             {                                                           \
-            cur_poz = cur_poz + skip;                                   \
-            comp_my_buf[i++] = name;                                    \
-            cur_adress++;                                               \
+                cur_poz = cur_poz + skip;                               \
+                comp_my_buf[i++] = name;                                \
+                cur_adress++;                                           \
             }
 
+
+#define COMMAND( com_num, com_print )                                   \
+            else if(strcmp(com_buff,com_print) == 0 && is_com == yes)   \
+            {                                                           \
+                if(COM_NEEDS_NOTHING(com_num))                          \
+                    FUNC_NO_NUM_COMPILE(com_num)                        \
+                else if(COM_NEEDS_NUM(com_num))                         \
+                    FUNC_NEEDS_NUM_COMPILE(com_num)                     \
+                else if(COM_NEEDS_TWO_NUM_AND_POINTER(com_num))         \
+                    J_FUNC_COMPILE(com_num)                             \
+            }
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +64,7 @@ void err_print(void);
 
 //!-------------------------------------------------------------------------------
 //!
-//! Compiler my program in my assembler  V - 1.4
+//! Compiler my program in my assembler  V - 1.5    UPD: Functions and returns, and new bugs :D Meow :3
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -135,6 +146,7 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
     const int no = 1;
     const int three_nums_time = 3;
     const int com_buff_size = 100;
+    const int sec_end = 3;
 
     long int cur_poz = 0;
     long int cur_adress = 0;
@@ -160,42 +172,13 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
             precompile_pointers(my_point_buff, my_buff, cur_poz, cur_adress);
             cur_poz = cur_poz + skip;
         }
-        else if(strcmp(com_buff,"je") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Je)
-        else if(strcmp(com_buff,"jne") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Jne)
-        else if(strcmp(com_buff,"ja") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Ja)
-        else if(strcmp(com_buff,"jae") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Jae)
-        else if(strcmp(com_buff,"jb") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Jb)
-        else if(strcmp(com_buff,"jbe") == 0 && is_com == yes)
-            J_FUNC_COMPILE(Jbe)
-        else if(strcmp(com_buff,"push") == 0 && is_com == yes)
-            FUNC_NEEDS_NUM_COMPILE(Push)
-        else if(strcmp(com_buff,"jump") == 0 && is_com == yes)
-            FUNC_NEEDS_NUM_COMPILE(Jum)
-        else if(strcmp(com_buff,"popr") == 0 && is_com == yes)
-            FUNC_NEEDS_NUM_COMPILE(Pop_reg)
-        else if(strcmp(com_buff,"pushr") == 0 && is_com == yes)
-            FUNC_NEEDS_NUM_COMPILE(Push_reg)
-        else if(strcmp(com_buff,"pop") == 0 && is_com == yes)
-            FUNC_NO_NUM_COMPILE(Pop)
-        else if(strcmp(com_buff,"add") == 0 && is_com == yes)
-            FUNC_NO_NUM_COMPILE(Add)
-        else if(strcmp(com_buff,"mul") == 0 && is_com == yes)
-            FUNC_NO_NUM_COMPILE(Mul)
-        else if(strcmp(com_buff,"sub") == 0 && is_com == yes)
-            FUNC_NO_NUM_COMPILE(Sub)
-        else if(strcmp(com_buff,"div") == 0 && is_com == yes)
-            FUNC_NO_NUM_COMPILE(Div)
+        #include"my_command_shortcut.h"
         else if(strcmp(com_buff,"end") == 0 && is_com == yes)
         {
             cur_poz = cur_poz + skip;
             comp_my_buf[i++] = End;
             comp_my_buf[i++] = '\n';
-            is_end = yes;
+            is_end++;
             cur_adress++;
         }
         else if(my_buff[cur_poz] != '\0' && is_com != yes)
@@ -222,7 +205,7 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
             cur_poz++;
 
 
-        if(is_end == yes)
+        if(is_end == sec_end)
         {
             aftercompile_pointers(my_point_buff, comp_my_buf, size_of_prog);
             return;
@@ -236,6 +219,8 @@ void compile_prog(char* my_buff, char* comp_my_buf, long int size_of_prog)
             return;
         }
     }
+
+
 
 }
 
@@ -278,7 +263,7 @@ void precompile_pointers(char* my_point_buff, char* my_buff, long int cur_pos, l
 //! @param[in] long int size_of_prog - size of prog
 //!
 //!-------------------------------------------------------------------------------
-void aftercompile_pointers(char* my_point_buff, char* comp_my_buff, long int size_of_prog)
+void aftercompile_pointers(char* my_point_buff, char* comp_my_buff, long int size_of_prog)///ERR with long (10 11 12) nums
 {
     long int cur_pos = 0;
     long int point_num = 0;
@@ -386,6 +371,7 @@ int str_get(char* my_buff, char* com_buf, long int cur_poz, long int buf_size, l
 void file_print(char *comp_my_buff, long int size_of_prog)
 {
     const int yes = 0;
+    const int sec_end = 3;
     const int no = 1;
     const int need_three_nums = 3;
     long int cur_pos = 0;
@@ -394,28 +380,36 @@ void file_print(char *comp_my_buff, long int size_of_prog)
 
     int is_command = yes;
     int is_end = no;
+    int is_no_n = no;
 
     data_type cur_num = 0;
     data_type next_num = 0;
 
-    while(is_end == no && cur_pos < size_of_prog)
+    while(is_end != sec_end && cur_pos < size_of_prog)
     {
         cur_num = comp_my_buff[cur_pos];
         next_num = comp_my_buff[cur_pos + 1];
 
         if(is_command == yes && cur_num != '\n')
         {
+            is_no_n = no;
 
             if(COM_NEEDS_NUM(cur_num))
                 is_command = no;
             else if(COM_NEEDS_TWO_NUM_AND_POINTER(cur_num))
                 is_command = need_three_nums;
             else if(cur_num == End)
-                is_end = yes;
+            {
+                is_no_n = yes;
+                is_end++;
+            }
 
             fprintf(compile, "%d", cur_num);
+
+            if(is_no_n == yes)
+                fprintf(compile, "\n");
         }
-        else if(cur_num == '\n')
+        else if(cur_num == '\n' && is_no_n == no)
         {
             fprintf(compile, "\n");
         }

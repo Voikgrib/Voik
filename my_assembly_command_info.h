@@ -2,12 +2,14 @@
 #define MY_ASSEMBLY_COMMAND_INFO_H_INCLUDED
 
 //!----------------------------------------------------------------------------------
-//! Main information about function v 1.4   UPD if_Jump function with pointers
+//! Main information about function v 1.5  UPD functions and returns!!! and meow ^^
 //!
 //! ( Say NO to copy-paste! )
 //!
 //! Author: Vladimir Gribanov
 //!----------------------------------------------------------------------------------
+
+int com_code;
 
 const int Push = 1;
 const int Pop = 2;
@@ -18,6 +20,11 @@ const int Div = 6;
 const int Jum = 7;
 const int Push_reg = 8;
 const int Pop_reg = 9;
+
+const int Meow = 33;
+
+const int Fcall = 51;
+const int Fret = 52;
 
 const int Je = 100;     // if(a == b) jump :c   else jump to next line
 const int Jne = 101;    // if(a != b) jump :c   else jump to next line
@@ -32,6 +39,7 @@ typedef int data_type;  // !!! CHANGE DATA_TYPE HERE !!!
 
 const long int Max_size_of_my_stack = 20;
 const long int Max_size_of_num_data = 20;
+const long int Max_num_of_func = 20;
 const long int Max_num_of_pointers = 20;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,7 +51,9 @@ const long int Max_num_of_pointers = 20;
             cur_num == Mul ||                                        \
             cur_num == Sub ||                                        \
             cur_num == Div ||                                        \
-            cur_num == End                                           \
+            cur_num == End ||                                        \
+            cur_num == Fret ||                                       \
+            cur_num == Meow                                          \
             )
 
 
@@ -54,7 +64,8 @@ const long int Max_num_of_pointers = 20;
             cur_num == Push ||                                       \
             cur_num == Pop_reg ||                                    \
             cur_num == Push_reg ||                                   \
-            cur_num == Jum                                           \
+            cur_num == Jum ||                                        \
+            cur_num == Fcall                                         \
             )
 
 
