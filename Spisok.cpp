@@ -13,6 +13,23 @@
                                     }
 
 
+#define WORK_TYPE( com )                                                                           \
+            if(strcmp(work_type,"start") == 0)                                                     \
+                work_par = LIST_START;                                                             \
+            else if(strcmp(work_type,"end") == 0)                                                  \
+                work_par = LIST_END;                                                               \
+            else if(strcmp(work_type,"cur") == 0)                                                  \
+                work_par = LIST_USR_POS;                                                           \
+            else                                                                                   \
+                printf(">>> Can not identify " #com " type!!!\n");
+
+
+#define LIST_START              0
+
+#define LIST_END                1
+
+#define LIST_USR_POS            2
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -27,13 +44,16 @@ int is_lisk_ok(struct s_my_list *listik);
 int empty_space_search(struct s_my_list *listik);
 int start_search(struct s_my_list *listik);
 
-void generate_list(struct s_my_list *listik);
 void buf_fill(char* my_buff, long int size_buff, int fill_counter);
+void generate_list(struct s_my_list *listik);
 void my_interface(struct s_my_list *listik);
-void list_add(struct s_my_list *listik, int position, t_list_data number);
-void list_free(struct s_my_list *listik, int position);
+
+void list_add(struct s_my_list *listik, int position, t_list_data number, int where_point);
+void list_free(struct s_my_list *listik, int position, int where_point);
 void list_printer(struct s_my_list *listik);
 void list_dump(struct s_my_list *listik);
+
+void list_search_by_num(struct s_my_list *listik, t_list_data number);
 
 //!-------------------------------------------------------------------------------
 //! @param int canarry_hello
@@ -57,7 +77,7 @@ struct s_my_list
 
 //!-------------------------------------------------------------------------------
 //!
-//! List system (no bugs in add & free) v - 1.1
+//! List system (no bugs in add & free) v - 1.3   UPD - Now with Donov!!!
 //!
 //! Author: Gribanov Vladimir
 //!
@@ -86,26 +106,39 @@ void my_interface(struct s_my_list *listik)
 
     t_list_data num = 0;
 
-    int pos = 0;
+    int user_pos = 0;
+    int work_par = -1;
 
     char command_line[comm_lenght];
+    char work_type[comm_lenght];
 
 
     while(strcmp(command_line,"exit") != 0)
     {
         buf_fill(command_line, comm_lenght, '\0');
+        buf_fill(work_type, comm_lenght, '\0');
+
         scanf("%s", &command_line);
 
         if(strcmp(command_line,"add") == 0)
         {
-            scanf("%d", &pos);
+            scanf("%s", &work_type);
             scanf("%d", &num);
-            list_add(listik, pos, num);
+
+            WORK_TYPE( add )
+
+            if(work_par != -1)
+                list_add(listik, user_pos, num, work_par);
+
+            work_par = -1;
         }
         else if(strcmp(command_line,"free") == 0)
         {
-            scanf("%d", &pos);
-            list_free(listik, pos);
+            scanf("%s", &work_type);
+
+            WORK_TYPE( free );
+
+            list_free(listik, user_pos, work_par);
         }
         else if(strcmp(command_line,"print") == 0)
         {
@@ -114,6 +147,16 @@ void my_interface(struct s_my_list *listik)
         else if(strcmp(command_line,"dump") == 0)
         {
             list_dump(listik);
+        }
+        else if(strcmp(command_line,"setpos") == 0)
+        {
+            scanf("%d",&user_pos);
+        }
+        else if(strcmp(command_line,"data_search") == 0)
+        {
+            scanf("%d", &num);
+
+            list_search_by_num(listik, num);
         }
     }
 }
@@ -150,42 +193,63 @@ void generate_list(struct s_my_list *listik)
 //! @param[in] int position - position which we clear
 //!
 //!-------------------------------------------------------------------------------
-void list_free(struct s_my_list *listik, int position)
+void list_free(struct s_my_list *listik, int position, int where_point)
 {
     LIST_ASSERT( listik )
 
-    int cur_pos = listik->start_point;
+    int cur_pos = 0;
     int prev_pos = 0;
     int next_pos = 0;
-    int counter = 0;
 
-    while(counter != position)
+    if(where_point == LIST_START)
     {
-        cur_pos = listik->next_pointer[cur_pos];
-        counter++;
+        cur_pos = listik->start_point;
+
+        next_pos = listik->next_pointer[cur_pos];
+
+        listik->prev_pointer[next_pos] = 0;
+        listik->start_point = next_pos;
     }
-
-
-    if(listik->start_point != cur_pos || cur_pos != listik->end_point)
+    else if(where_point == LIST_END)
     {
-        if(listik->prev_pointer[cur_pos] == 0)
+        cur_pos = listik->end_point;
+
+        prev_pos = listik->prev_pointer[cur_pos];
+
+        listik->next_pointer[prev_pos] = 0;
+        listik->end_point = prev_pos;
+    }
+    else if(where_point == LIST_USR_POS)
+    {
+        cur_pos = position;
+
+        if(listik->prev_pointer[cur_pos] == -1 || listik->prev_pointer[cur_pos] == -1)
         {
-            next_pos = listik->next_pointer[cur_pos];
-            listik->start_point = next_pos;
-            listik->prev_pointer[next_pos] = 0;
+            printf(">>> I can not free empty element, because it is already free! *smotrit na tebya vsgladom kepa* \n");
+            return;
         }
-        else if(listik->next_pointer[cur_pos] == 0)
+
+        if(listik->start_point != cur_pos || cur_pos != listik->end_point)
         {
-            prev_pos = listik->prev_pointer[cur_pos];
-            listik->end_point = prev_pos;
-            listik->next_pointer[prev_pos] = 0;
-        }
-        else
-        {
-            next_pos = listik->next_pointer[cur_pos];
-            prev_pos = listik->prev_pointer[cur_pos];
-            listik->prev_pointer[next_pos] = prev_pos;
-            listik->next_pointer[prev_pos] = next_pos;
+            if(listik->prev_pointer[cur_pos] == 0)
+            {
+                next_pos = listik->next_pointer[cur_pos];
+                listik->start_point = next_pos;
+                listik->prev_pointer[next_pos] = 0;
+            }
+            else if(listik->next_pointer[cur_pos] == 0)
+            {
+                prev_pos = listik->prev_pointer[cur_pos];
+                listik->end_point = prev_pos;
+                listik->next_pointer[prev_pos] = 0;
+            }
+            else
+            {
+                next_pos = listik->next_pointer[cur_pos];
+                prev_pos = listik->prev_pointer[cur_pos];
+                listik->prev_pointer[next_pos] = prev_pos;
+                listik->next_pointer[prev_pos] = next_pos;
+            }
         }
     }
 
@@ -205,60 +269,112 @@ void list_free(struct s_my_list *listik, int position)
 //! @param[in] t_list_data number - new number
 //!
 //!-------------------------------------------------------------------------------
-void list_add(struct s_my_list *listik, int position, t_list_data number)
+void list_add(struct s_my_list *listik, int position, t_list_data number, int where_point)
 {
     LIST_ASSERT( listik )
 
     int fill_pos = empty_space_search(listik);
-    int cur_pos = listik->start_point;
     int cur_place = 1;
     int prev_place = 1;
 
-    while(cur_pos != position)
+    if(where_point == LIST_END || (where_point == LIST_USR_POS && position == listik->end_point))
     {
-        if(cur_place != listik->end_point)
-            cur_place = listik->next_pointer[cur_place];
-        else
+        prev_place = listik->end_point;
+
+        listik->next_pointer[prev_place] = fill_pos;
+
+        listik->prev_pointer[fill_pos] = prev_place;
+        listik->next_pointer[fill_pos] = 0;
+
+        listik->end_point = fill_pos;
+    }
+    else if(where_point == LIST_START || (where_point == LIST_USR_POS && position == listik->start_point))
+    {
+        cur_place = listik->start_point;
+
+        listik->prev_pointer[cur_place] = fill_pos;
+
+        listik->prev_pointer[fill_pos] = 0;
+        listik->next_pointer[fill_pos] = cur_place;
+
+        listik->start_point = fill_pos;
+    }
+    else if(where_point == LIST_USR_POS)
+    {
+        cur_place = position;
+
+        if(listik->prev_pointer[cur_place] == -1 || listik->prev_pointer[cur_place] == -1)
         {
-            listik->end_point = fill_pos;
-            prev_place = cur_place;
+            printf(">>> I can not put before empty element! \n");
+            return;
         }
 
-        cur_pos++;
-    }
-
-    if(listik->end_point != fill_pos)
-    {
         prev_place = listik->prev_pointer[cur_place];
 
-        if(listik->prev_pointer[cur_place] == 0)
-        {
-            prev_place = 0;
-            listik->start_point = fill_pos;
-        }
-    }
-
-    if(listik->start_point != fill_pos)
-    {
         listik->prev_pointer[fill_pos] = prev_place;
+        listik->next_pointer[fill_pos] = cur_place;
+
+        listik->prev_pointer[cur_place] = fill_pos;
         listik->next_pointer[prev_place] = fill_pos;
-    }
-    else
-    {
-        listik->prev_pointer[fill_pos] = 0;
+
     }
 
     listik->main_data[fill_pos] = number;
 
-    if(listik->end_point != fill_pos)
-    {
-        listik->next_pointer[fill_pos] = cur_place;
-        listik->prev_pointer[cur_place] = fill_pos;
-    }
-    else
-        listik->next_pointer[fill_pos] = 0;
+    listik->next_pointer[listik->end_point] = 0;
+    listik->prev_pointer[listik->start_point] = 0;
 
     LIST_ASSERT( listik )
+}
+
+//!-------------------------------------------------------------------------------
+//!
+//!
+//!
+//!
+//!
+//!-------------------------------------------------------------------------------
+void list_search_by_num(struct s_my_list *listik, t_list_data number)
+{
+    const int answ_size = 10;
+
+    int cur_pos = listik->start_point;
+    int little_donov = 0;
+
+    char answer[answ_size] = {};
+
+    printf(">>> Are you sure? (yes/no)\n");
+
+    buf_fill(answer, answ_size, '\0');
+    scanf("%s", &answer);
+
+    if(strcmp(answer,"no") == 0)
+        return;
+
+    printf(">>> A mnogo podtagivaeshsa? (yes/no)\n");
+
+    buf_fill(answer, answ_size, '\0');
+    scanf("%s", &answer);
+
+    if(strcmp(answer,"no") == 0)
+        return;
+
+    while(cur_pos != 0)
+    {
+        little_donov = rand() % 100;
+
+        if(little_donov <= 50)
+            printf(">>> Podtanis rasok! \n");
+        else
+            printf(">>> *smotry na tebya wzgladom, polnim presreniya*\n");
+
+        if(listik->main_data[cur_pos] == number)
+        {
+            printf("\n <><><><><> Equal number place in data_num = %d\n \n", cur_pos);
+        }
+
+        cur_pos = listik->next_pointer[cur_pos];
+    }
 }
 
 //!-------------------------------------------------------------------------------

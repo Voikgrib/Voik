@@ -1,31 +1,8 @@
 digraph list {
-	node [shape = record,height=.1];
-	node0[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 0" ] ;
-	node1[label = "<f0>data = 2 |<f1>next = 2 |<f2>prev = 0|<f3> data_num = 1" ] ;
-	node2[label = "<f0>data = 3 |<f1>next = 4 |<f2>prev = 1|<f3> data_num = 2" ] ;
-	node3[label = "<f0>data = 4 |<f1>next = 6 |<f2>prev = 5|<f3> data_num = 3" ] ;
-	node4[label = "<f0>data = 3 |<f1>next = 5 |<f2>prev = 2|<f3> data_num = 4" ] ;
-	node5[label = "<f0>data = 5 |<f1>next = 3 |<f2>prev = 4|<f3> data_num = 5" ] ;
-	node6[label = "<f0>data = 100 |<f1>next = 0 |<f2>prev = 3|<f3> data_num = 6" ] ;
-	node7[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 7" ] ;
-	node8[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 8" ] ;
-	node9[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 9" ] ;
-	node10[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 10" ] ;
-	node11[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 11" ] ;
-	node12[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 12" ] ;
-	node13[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 13" ] ;
-	node14[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 14" ] ;
-	node15[label = "<f0>data = -1 |<f1>next = -1 |<f2>prev = -1|<f3> data_num = 15" ] ;
-	"node1":f1 -> "node2":f1;
-	"node1":f2 -> "node0":f2;
-	"node2":f1 -> "node4":f1;
-	"node2":f2 -> "node1":f2;
-	"node3":f1 -> "node6":f1;
-	"node3":f2 -> "node5":f2;
-	"node4":f1 -> "node5":f1;
-	"node4":f2 -> "node2":f2;
-	"node5":f1 -> "node3":f1;
-	"node5":f2 -> "node4":f2;
-	"node6":f1 -> "node0":f1;
-	"node6":f2 -> "node3":f2;
+	node [shape = record];
+	node0 [label = "cur_poz = 0|{<f0> Parent = 02be0d60 | <f1>donov |{<f2> no = 00000000 | <f3> yes = 00000000 }}"];
+	node1 [label = "cur_poz = 1|{<f0> Parent = 00000000 | <f1>Eto_zwer |{<f2> no = 02be0e50 | <f3> yes = 02be0dd8 }}"];
+	node2 [label = "cur_poz = 2|{<f0> Parent = 02be0d60 | <f1>kotik |{<f2> no = 00000000 | <f3> yes = 00000000 }}"];
+	"node2":f2 -> "node1":f0;
+	"node2":f3 -> "node1":f0;
 }
