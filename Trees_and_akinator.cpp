@@ -18,15 +18,18 @@ void brunch_construct(struct s_my_tree_brunch* ak_tree, struct s_my_tree_brunch 
 void user_interface(void);
 void tree_dump(struct s_my_tree_brunch *start_point);
 void node_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump);
-void arrows_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump, long int prev_num);
+void arrows_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump);
 void relinker(struct s_my_tree_brunch *cur_point, char *qwest, char *yes_ans, char *no_ans);
+
+void sub_podch_space(char* buff, long int size_of_text);
 
 void info_saver(struct s_my_tree_brunch *start_point);
 void info_rec_saver(struct s_my_tree_brunch *cur_point, FILE *ak_info);
-struct s_my_tree_brunch *info_reader(struct s_my_tree_brunch *start_point);
-struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info);
+struct s_my_tree_brunch *info_reader(void);
+struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info, int dim);
 
 void recur_gen_dot_dump(struct s_my_tree_brunch *node);
+void freesher(struct s_my_tree_brunch *start_point);
 
 //!-------------------------------------------------------------------------------
 //!
@@ -47,10 +50,11 @@ struct s_my_tree_brunch
 
 //!-------------------------------------------------------------------------------
 //!
-//! It's my akinator  v - 1.3
+//! It's my akinator  v - 1.4
 //!
 //! >>> UPD(1.2) - Akinator work? Yes! dump work? Nope (Magic)
-//! >>> UPD(1.3) - I make memory! (but not dump, because he is byaka :p)
+//! >>> UPD(1.3) - I make memory! Not read, but save! (but not dump, because he is byaka :p)
+//! >>> UPD(1.4) - Look at this dump! It's working now!! :D (add logo)
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -83,6 +87,17 @@ void user_interface(void)
 
     start_point = cur_pos;
 
+    //start_point = info_reader();
+    //tree_dump(start_point);
+    //return;
+
+
+    printf("\t\t+=========================================================+\n"
+           "\t\t|      AKINATOR v 1.4      made by Vladimir Gribanov      |\n"
+           "\t\t|                                                         |\n"
+           "\t\t|     ! VMESTO PROBELOV PODCHERKIVANIA ! (krik dushi)     |\n"
+           "\t\t+=========================================================+\n");
+
     while(cur_pos != NULL)
     {
         buf_fill(command, Max_size_of_text, '\0');
@@ -91,7 +106,7 @@ void user_interface(void)
 
         if(cur_pos->left_point == NULL || cur_pos == NULL)
         {
-            printf("Eto %s ???\n", cur_pos->text_info);
+            printf("Ia znaiy!! Eto %s ???\n", cur_pos->text_info);
 
             scanf("%s", command);
 
@@ -106,6 +121,9 @@ void user_interface(void)
                 scanf("%s", &info_buf);
                 printf("Chto ect y %s i net y %s (no space please)?\n", info_buf, cur_pos->text_info);
                 scanf("%s", &qwestion_buf);
+
+                sub_podch_space(info_buf, Max_size_of_text);
+                sub_podch_space(qwestion_buf, Max_size_of_text);
 
                 relinker(cur_pos, qwestion_buf, info_buf, cur_pos->text_info);
             }
@@ -134,8 +152,9 @@ void user_interface(void)
         }
     }
 
-    //tree_dump(start_point);     ///======== WORK IN PROGRESS(?) =======///
+    tree_dump(start_point);
     info_saver(start_point);
+    freesher(start_point);
 }
 
 //!-------------------------------------------------------------------------------
@@ -226,9 +245,9 @@ void relinker(struct s_my_tree_brunch *cur_point, char *qwest, char *yes_ans, ch
 
 //!-------------------------------------------------------------------------------
 //!
-//! This function is not working correctly now =(
+//! This function create dump in dot language
 //!
-//! @param[in]
+//! @param[in] struct s_my_tree_brunch *start_point - pointer on start structure
 //!
 //!-------------------------------------------------------------------------------
 void tree_dump(struct s_my_tree_brunch *start_point)
@@ -241,7 +260,7 @@ void tree_dump(struct s_my_tree_brunch *start_point)
     /// node1 [label = "{<f0> Parent = %f |{ <f1> |{<f2> no = %f | <f3>  yes = %f }}}"]
 
     node_dump_gen(start_point, dump);
-    arrows_dump_gen(start_point, dump, Nil);
+    arrows_dump_gen(start_point, dump);
 
     fprintf(dump, "}");
 
@@ -252,21 +271,18 @@ void tree_dump(struct s_my_tree_brunch *start_point)
 
 //!-------------------------------------------------------------------------------
 //!
-//! This function is not working correctly now too =(
+//! This function do recursive print nodes in dump file in dot language
 //!
-//! @param[in]
-//! @param[in]
+//! @param[in] struct s_my_tree_brunch *cur_point - pointer on current structure
+//! @param[in] FILE *dump - dump file
 //!
 //!-------------------------------------------------------------------------------
 void node_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump)
 {
-    static long int cur_pos = 0;
-
     if(cur_point->left_point != NULL)
         node_dump_gen(cur_point->left_point, dump);
 
-    fprintf(dump, "\tnode%ld [label = \"cur_poz = %ld|{<f0> Parent = %p | <f1>%s |{<f2> no = %p | <f3> yes = %p }}\"];\n", cur_pos, cur_pos, cur_point->parent_pointer, cur_point->text_info, cur_point->left_point, cur_point->right_point);
-    cur_pos++;
+    fprintf(dump, "\tnode%p [label = \"cur_poz = %p|{<f0> Parent = %p | <f1>%s |{<f2> no = %p | <f3> yes = %p }}\"];\n", cur_point, cur_point, cur_point->parent_pointer, cur_point->text_info, cur_point->left_point, cur_point->right_point);
 
     if(cur_point->right_point != NULL)
         node_dump_gen(cur_point->right_point, dump);
@@ -274,35 +290,25 @@ void node_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump)
 
 //!-------------------------------------------------------------------------------
 //!
+//! This function do recursive print arrows in dump file in dot language
 //!
-//!
-//! @param[in]
-//! @param[in]
-//! @param[in]
+//! @param[in] struct s_my_tree_brunch *cur_point - pointer on current structure
+//! @param[in] FILE *dump - dump file
 //!
 //!-------------------------------------------------------------------------------
-void arrows_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump, long int prev_num)
+void arrows_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump)
 {
-    static long int cur_pos = 0;
-
-    if(cur_pos != 0)
-    {
-        fprintf(dump, "\t\"node%ld\":f2 -> \"node%ld\":f0;\n", prev_num);
-        fprintf(dump, "\t\"node%ld\":f3 -> \"node%ld\":f0;\n", prev_num);
-    }
+    if(cur_point->left_point != NULL)
+        arrows_dump_gen(cur_point->left_point, dump);
 
     if(cur_point->left_point != NULL)
-    {
-        arrows_dump_gen(cur_point->left_point, dump, cur_pos);
-    }
-
-
-    cur_pos++;
+        fprintf(dump, "\t\"node%p\":f2 -> \"node%p\":f0[color = red];\n", cur_point, cur_point->left_point);
 
     if(cur_point->right_point != NULL)
-    {
-        arrows_dump_gen(cur_point->right_point, dump, cur_pos);
-    }
+        fprintf(dump, "\t\"node%p\":f3 -> \"node%p\":f0[color = green];\n", cur_point, cur_point->right_point);
+
+    if(cur_point->right_point != NULL)
+        arrows_dump_gen(cur_point->right_point, dump);
 }
 
 //!-------------------------------------------------------------------------------
@@ -323,6 +329,27 @@ void info_saver(struct s_my_tree_brunch *start_point)
 
 //!-------------------------------------------------------------------------------
 //!
+//!
+//!
+//! @param[in]
+//! @param[in]
+//!
+//!-------------------------------------------------------------------------------
+void sub_podch_space(char* buff, long int size_of_text)
+{
+    int i = 0;
+
+    while(i != size_of_text)
+    {
+        if(buff[i] == '_')
+            buff[i] = ' ';
+
+        i++;
+    }
+}
+
+//!-------------------------------------------------------------------------------
+//!
 //! Fill file with info using recursion
 //!
 //! @param[in] struct s_my_tree_brunch *cur_point - brunch we are working on
@@ -333,33 +360,48 @@ void info_rec_saver(struct s_my_tree_brunch *cur_point, FILE *ak_info)
 {
     if(cur_point == NULL)
     {
-        fprintf(ak_info, "!");
         return;
     }
 
+    fprintf(ak_info, "\t");
     fprintf(ak_info, "(");
-    fprintf(ak_info, " %s ", cur_point->text_info);
+    fprintf(ak_info, "'%s'\n", cur_point->text_info);
+    fprintf(ak_info, "\t");
+
 
     info_rec_saver(cur_point->left_point, ak_info);
     info_rec_saver(cur_point->right_point, ak_info);
 
-    fprintf(ak_info, ")");
+    fprintf(ak_info, "\t");
+    fprintf(ak_info, ")\n");
 }
 
 //!-------------------------------------------------------------------------------
 //!
-//!                                                                                 ///Work in progress
-//!
-//! @param[in]
+//!  Prepare to read file                                                             ///Work in progress
 //!
 //!-------------------------------------------------------------------------------
-struct s_my_tree_brunch *info_reader(struct s_my_tree_brunch *start_point)
+struct s_my_tree_brunch *info_reader(void)
 {
     FILE *ak_info = fopen("ak_info.txt","r");
 
+    struct s_my_tree_brunch *n_element = NULL;
 
+    char buff[Max_size_of_text] = {};
+
+    int cym = getc(ak_info);
+
+    while(cym != '\'')
+        cym = getc(ak_info);
+
+    fscanf(ak_info ,"%[^']", &buff);
+    n_element = create_part(NULL, buff, Nil);
+
+    info_rec_reader(n_element, ak_info, Left);
 
     fclose(ak_info);
+
+    return n_element;
 }
 
 //!-------------------------------------------------------------------------------
@@ -370,33 +412,77 @@ struct s_my_tree_brunch *info_reader(struct s_my_tree_brunch *start_point)
 //! @param[in] FILE *ak_info - file with saved info
 //!
 //!-------------------------------------------------------------------------------
-struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info)
+struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info, int dim)
 {
+    struct s_my_tree_brunch *n_element = NULL;
+
     char buff[Max_size_of_text] = {};
 
-    int symbol = 0;
-    int cur_pos = 0;
+    int cym = getc(ak_info);
 
-    symbol = fgetc(ak_info);
+    while(cym == ' ' || cym == '\t' || cym == '\n')
+        cym = getc(ak_info);
 
-    while(symbol != '(' && symbol != ')' && symbol != '!' && cur_pos != Max_size_of_text)
+    if(cym == '\'')
     {
-        buff[cur_pos++] = symbol;
-        symbol = fgetc(ak_info);
+        getc(ak_info);
+        fscanf(ak_info ,"%[^']", &buff);
+        getc(ak_info);
+        n_element = create_part(cur_point, buff, dim);
+
+    }
+    else if(cym == '(' && dim == Left)
+    {
+        n_element->left_point = info_rec_reader(n_element, ak_info, dim);printf("2\n");///
+
+        dim = Right;
+    }
+    else if(cym == '(' && dim == Right)
+    {
+        n_element->right_point = info_rec_reader(n_element, ak_info, dim);printf("3\n");///
+
+        dim = Left;
+    }
+    else if(cym == ')')
+    {
+        return n_element;
     }
 
-    if(symbol == '(')
+
+    /*if(cym == '(')
     {
-        cur_point->left_point = info_rec_reader(cur_point, ak_info);
+        if(dim == Left)
+        {
+        left_pos = (struct s_my_tree_brunch *) calloc(1, sizeof(struct s_my_tree_brunch));
+        cur_point->left_point = info_rec_reader(left_pos, ak_info);
+        dim = Right;
+        }
+        else if(dim == Right)
+        {
+        right_pos = (struct s_my_tree_brunch *) calloc(1, sizeof(struct s_my_tree_brunch));
+        cur_point->right_point = info_rec_reader(right_pos, ak_info);
+        dim = Left;
+        }
     }
-    else if(symbol == ')')
+    if(cym = ')' && dim == Left)
     {
-        cur_point->right_point = info_rec_reader(cur_point, ak_info);
-    }
-    else if(symbol == '!')
-    {
-        fgetc(ak_info);
-        cur_point->left_point = NULL;
-        cur_point->right_point = NULL;
-    }
+        return cur_point;
+    }*/
+
+}
+
+//!------------------------------------------------------------------------------
+//!
+//!
+//!
+//!------------------------------------------------------------------------------
+void freesher(struct s_my_tree_brunch *cur_point)
+{
+    if(cur_point->left_point != NULL)
+        freesher(cur_point->left_point);
+
+    if(cur_point->right_point != NULL)
+        freesher(cur_point->right_point);
+
+    free(cur_point);
 }

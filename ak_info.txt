@@ -1,1 +1,10 @@
-( Eto_zwer ( mario !!)( kotik !!))
+	('Eto_zwer'
+		('mario'
+		)
+	('bolshaya'
+		('kotik'
+		)
+	('horse'
+		)
+	)
+	)
