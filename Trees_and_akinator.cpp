@@ -12,7 +12,13 @@ const int Nil = 0;
 const int Left = 1;
 const int Right = 2;
 
+int Err_code = 0;
+
 struct s_my_tree_brunch *create_part(struct s_my_tree_brunch *parent, char *info, int direct);
+
+long int get_file_size(FILE *text);
+
+int f_skipper(FILE *file, int cym);
 
 void brunch_construct(struct s_my_tree_brunch* ak_tree, struct s_my_tree_brunch *parent_point);
 void user_interface(void);
@@ -22,11 +28,12 @@ void arrows_dump_gen(struct s_my_tree_brunch *cur_point, FILE *dump);
 void relinker(struct s_my_tree_brunch *cur_point, char *qwest, char *yes_ans, char *no_ans);
 
 void sub_podch_space(char* buff, long int size_of_text);
+void buff_in_struct(char *buff, struct s_my_tree_brunch *brunch);
 
 void info_saver(struct s_my_tree_brunch *start_point);
 void info_rec_saver(struct s_my_tree_brunch *cur_point, FILE *ak_info);
 struct s_my_tree_brunch *info_reader(void);
-struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info, int dim);
+struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, char *buff, long int size_of_file);
 
 void recur_gen_dot_dump(struct s_my_tree_brunch *node);
 void freesher(struct s_my_tree_brunch *start_point);
@@ -50,11 +57,12 @@ struct s_my_tree_brunch
 
 //!-------------------------------------------------------------------------------
 //!
-//! It's my akinator  v - 1.4
+//! It's my akinator  v - 1.5
 //!
 //! >>> UPD(1.2) - Akinator work? Yes! dump work? Nope (Magic)
 //! >>> UPD(1.3) - I make memory! Not read, but save! (but not dump, because he is byaka :p)
 //! >>> UPD(1.4) - Look at this dump! It's working now!! :D (add logo)
+//! >>> UPD(1.5) - FINALLY IT'S MORE SMART THAN GOLDFISH! (reading program working correctly)
 //!
 //! Author: Vladimir Gribanov
 //!
@@ -80,23 +88,24 @@ void user_interface(void)
     char info_buf[Max_size_of_text] = {};
     char qwestion_buf[Max_size_of_text] = {};
 
-    cur_pos = create_part(Poizon_point, "Eto_zwer", Nil);
+    //cur_pos = create_part(Poizon_point, "Eto_zwer", Nil);
 
-    create_part(cur_pos, "kotik", Right);
-    create_part(cur_pos, "mario", Left);
+    //create_part(cur_pos, "kotik", Right);
+    //create_part(cur_pos, "mario", Left);
 
     start_point = cur_pos;
 
-    //start_point = info_reader();
+    start_point = info_reader();
     //tree_dump(start_point);
+    cur_pos = start_point;
     //return;
 
 
-    printf("\t\t+=========================================================+\n"
-           "\t\t|      AKINATOR v 1.4      made by Vladimir Gribanov      |\n"
-           "\t\t|                                                         |\n"
-           "\t\t|     ! VMESTO PROBELOV PODCHERKIVANIA ! (krik dushi)     |\n"
-           "\t\t+=========================================================+\n");
+    printf("\n\n\t\t+=========================================================+\n"
+               "\t\t|      AKINATOR v 1.5      made by Vladimir Gribanov      |\n"
+               "\t\t|                                                         |\n"
+               "\t\t|     ! VMESTO PROBELOV PODCHERKIVANIA ! (krik dushi)     |\n"
+               "\t\t+=========================================================+\n");
 
     while(cur_pos != NULL)
     {
@@ -152,7 +161,7 @@ void user_interface(void)
         }
     }
 
-    tree_dump(start_point);
+    //tree_dump(start_point);
     info_saver(start_point);
     freesher(start_point);
 }
@@ -378,102 +387,104 @@ void info_rec_saver(struct s_my_tree_brunch *cur_point, FILE *ak_info)
 
 //!-------------------------------------------------------------------------------
 //!
-//!  Prepare to read file                                                             ///Work in progress
+//!  Prepare to read file
 //!
 //!-------------------------------------------------------------------------------
 struct s_my_tree_brunch *info_reader(void)
 {
     FILE *ak_info = fopen("ak_info.txt","r");
 
-    struct s_my_tree_brunch *n_element = NULL;
+    struct s_my_tree_brunch *start_elem = create_part(NULL, " ", Nil);
 
-    char buff[Max_size_of_text] = {};
+    long int size_of_file = get_file_size(ak_info);
 
-    int cym = getc(ak_info);
+    char *buff = new char [size_of_file];
 
-    while(cym != '\'')
-        cym = getc(ak_info);
+    fseek(ak_info, 0, SEEK_SET);
+    fread(buff, sizeof(char), size_of_file, ak_info);
 
-    fscanf(ak_info ,"%[^']", &buff);
-    n_element = create_part(NULL, buff, Nil);
-
-    info_rec_reader(n_element, ak_info, Left);
+    start_elem = info_rec_reader(start_elem, buff, size_of_file);
 
     fclose(ak_info);
 
-    return n_element;
+    return start_elem;
 }
 
 //!-------------------------------------------------------------------------------
 //!
-//! Read file with info using recursion                                              ///Work in progress
+//! Read file with info using recursion
 //!
 //! @param[in] struct s_my_tree_brunch *cur_point - brunch we are working on
 //! @param[in] FILE *ak_info - file with saved info
 //!
 //!-------------------------------------------------------------------------------
-struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, FILE *ak_info, int dim)
+struct s_my_tree_brunch *info_rec_reader(struct s_my_tree_brunch *cur_point, char *buff, long int size_of_file)
 {
-    struct s_my_tree_brunch *n_element = NULL;
+    //if(Err_code != 0)
+    //    return NULL;
 
-    char buff[Max_size_of_text] = {};
+    static long int pos_in_buff = 0;
 
-    int cym = getc(ak_info);
+    int inf_pos = 0;
 
-    while(cym == ' ' || cym == '\t' || cym == '\n')
-        cym = getc(ak_info);
+    struct s_my_tree_brunch *n_element_l = (struct s_my_tree_brunch*) calloc(1, sizeof(struct s_my_tree_brunch));
+    struct s_my_tree_brunch *n_element_r = (struct s_my_tree_brunch*) calloc(1, sizeof(struct s_my_tree_brunch));
 
-    if(cym == '\'')
+    if(cur_point->parent_pointer == NULL)
     {
-        getc(ak_info);
-        fscanf(ak_info ,"%[^']", &buff);
-        getc(ak_info);
-        n_element = create_part(cur_point, buff, dim);
+        while(buff[pos_in_buff] != '\'')
+            pos_in_buff++;
 
-    }
-    else if(cym == '(' && dim == Left)
-    {
-        n_element->left_point = info_rec_reader(n_element, ak_info, dim);printf("2\n");///
+        pos_in_buff++;
 
-        dim = Right;
-    }
-    else if(cym == '(' && dim == Right)
-    {
-        n_element->right_point = info_rec_reader(n_element, ak_info, dim);printf("3\n");///
+        while(buff[pos_in_buff] != '\'')
+            cur_point->text_info[inf_pos++] = buff[pos_in_buff++];
 
-        dim = Left;
-    }
-    else if(cym == ')')
-    {
-        return n_element;
+        pos_in_buff++;
+
+        inf_pos = 0;
     }
 
+    while(buff[pos_in_buff] == ' ' || buff[pos_in_buff] == '\n' || buff[pos_in_buff] == '\t' || buff[pos_in_buff] == '\r')
+        pos_in_buff++;
 
-    /*if(cym == '(')
+    if(buff[pos_in_buff] == '\'')
     {
-        if(dim == Left)
-        {
-        left_pos = (struct s_my_tree_brunch *) calloc(1, sizeof(struct s_my_tree_brunch));
-        cur_point->left_point = info_rec_reader(left_pos, ak_info);
-        dim = Right;
-        }
-        else if(dim == Right)
-        {
-        right_pos = (struct s_my_tree_brunch *) calloc(1, sizeof(struct s_my_tree_brunch));
-        cur_point->right_point = info_rec_reader(right_pos, ak_info);
-        dim = Left;
-        }
+        while(buff[pos_in_buff] != '\'')
+            cur_point->text_info[inf_pos++] = buff[pos_in_buff++];
+
+        pos_in_buff++;
     }
-    if(cym = ')' && dim == Left)
+
+    while(buff[pos_in_buff] == ' ' || buff[pos_in_buff] == '\n' || buff[pos_in_buff] == '\t' || buff[pos_in_buff] == '\r')
+        pos_in_buff++;
+
+    if(buff[pos_in_buff] == '(')
+    {
+        cur_point->left_point = info_rec_reader(n_element_l, buff, size_of_file);
+        cur_point->right_point = info_rec_reader(n_element_r, buff, size_of_file);
+
+        while(buff[pos_in_buff] != ')')
+            pos_in_buff++;
+
+        pos_in_buff++;
+
+        return cur_point;
+    }
+    else if(buff[pos_in_buff] == ')')
     {
         return cur_point;
-    }*/
-
+    }
+    else
+    {
+        return cur_point;
+    }
+        //printf(">>> ILI IA DURAK ILI TYT OSHIBKA \n");
 }
 
 //!------------------------------------------------------------------------------
 //!
-//!
+//! Why
 //!
 //!------------------------------------------------------------------------------
 void freesher(struct s_my_tree_brunch *cur_point)
@@ -485,4 +496,55 @@ void freesher(struct s_my_tree_brunch *cur_point)
         freesher(cur_point->right_point);
 
     free(cur_point);
+}
+
+//!------------------------------------------------------------------------------
+//!
+//! nobody
+//!
+//!------------------------------------------------------------------------------
+int f_skipper(FILE *file, int cym)
+{
+    while(cym == ' ' || cym == '\t' || cym == '\n' || cym == '\r')
+        cym = getc(file);
+
+    return cym;
+}
+
+//!------------------------------------------------------------------------------
+//!
+//! reads
+//!
+//!------------------------------------------------------------------------------
+void buff_in_struct(char *buff, struct s_my_tree_brunch *brunch)
+{
+    int i = 0;
+
+    while(i != Max_size_of_text)
+    {
+        brunch->text_info[i] = buff[i];
+        i++;
+    }
+}
+
+
+//!----------------------------------------------------------------
+//!
+//! my
+//!
+//! @param[in] FILE *text - documentation
+//!
+//! @param[out] size_of_text - ???
+//!
+//!----------------------------------------------------------------
+long int get_file_size(FILE *text)
+{
+    long int size_of_text = 0;
+
+    const int zero = 0;
+
+    fseek(text, zero, SEEK_END);
+    size_of_text = ftell(text);
+
+    return size_of_text;
 }
